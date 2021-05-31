@@ -356,26 +356,31 @@ namespace BD
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(320, 523);
+            this.label10.Location = new System.Drawing.Point(271, 522);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(195, 19);
+            this.label10.Size = new System.Drawing.Size(251, 19);
             this.label10.TabIndex = 51;
-            this.label10.Text = "Общее количество записей:";
+            this.label10.Text = "Количество совпадений по запросу";
             // 
             // Search_Type
             // 
             this.Search_Type.FormattingEnabled = true;
             this.Search_Type.Items.AddRange(new object[] {
             "ID",
-            "Тип_комнаты",
-            "Колво_кроватей",
-            "Этаж",
-            "Размер_оплаты"});
+            "Фамилия",
+            "Имя",
+            "Отчество",
+            "Город",
+            "Адрес",
+            "Место работы",
+            "Соц. положение ",
+            "Дата рождения"});
             this.Search_Type.Location = new System.Drawing.Point(543, 289);
             this.Search_Type.MaximumSize = new System.Drawing.Size(127, 0);
             this.Search_Type.Name = "Search_Type";
             this.Search_Type.Size = new System.Drawing.Size(127, 21);
             this.Search_Type.TabIndex = 55;
+            this.Search_Type.SelectedIndexChanged += new System.EventHandler(this.Search_Type_SelectedIndexChanged);
             // 
             // Searchlable
             // 

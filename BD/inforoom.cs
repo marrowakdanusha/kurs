@@ -14,13 +14,18 @@ namespace BD
 {
     public partial class inforoom : Form
     {
+        NpgsqlConnection _conn;
+        DataSet ds = new DataSet();
+        NpgsqlDataAdapter dataAdapter1 = null, InfoDataAdapter;
         DataTable data;
         NpgsqlConnection cconn;
         int id_room, n_id_room, SearchSort, id_client;
         string Note_choose,Notes_SQL, id_roomtype,  n_id_roomtype, birthday, surname_client,name_client, patronymic_client, job, id_city,id_socialstatus, adress, image, numberofseats, floor, payment, roomtype, searchText, tablecommand, info, sql_info, n_image, n_numberofseats, n_floor, n_payment;
-        
-        DataSet ds = new DataSet();
-        NpgsqlDataAdapter InfoDataAdapter, dataAdapter1;
+
+        private void Search_Type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void CountText_TextChanged(object sender, EventArgs e)
         {
@@ -88,14 +93,14 @@ namespace BD
                     Show();
                     LoadTable();
                     break;
-                case "города":
+                /*case "города":
                     Notes_SQL = "города";
-                   // inforoom_Load();
+                    inforoom_Load();
                     break;
                 case "соц. положения клиентов":
                     Notes_SQL = "соц. положения клиентов";
-                   // inforoom_Load();
-                    break;
+                    inforoom_Load();
+                    break; */
 
             }
             LoadInfo();
@@ -212,16 +217,26 @@ namespace BD
         {
             NpgsqlCommand command;
             searchText = Search_SQL.Text;
-            if (Search_Type.SelectedItem == null) { MessageBox.Show("Мы что, ничего не ищем?!"); return; }
+            if (Search_Type.SelectedItem == null) { MessageBox.Show("Тип поиска выбираем?!"); return; }
             switch (Search_Type.SelectedItem)
+                /* Фамилия
+Имя
+Отчество
+Город
+Адрес
+Место работы
+Соц. положение 
+Дата рождения
+                */
+
             {
                 case "ID":
                     try
                     {
-                        tablecommand = $"select * from search_room({Convert.ToInt32(searchText)},{numericUpDown1.Value - 1})";
+                        tablecommand = $"select * from search_client({Convert.ToInt32(searchText)},{numericUpDown1.Value - 1})";
                     }
                     catch (Exception ex) { return; }
-                    command = new NpgsqlCommand($"SELECT COUNT (*) from room where id_room={searchText}", cconn);
+                    command = new NpgsqlCommand($"SELECT COUNT (*) from client where id_client={searchText}", cconn);
                     CountText.Text = command.ExecuteScalar().ToString();
                     break;
                 case "Тип_комнаты":
