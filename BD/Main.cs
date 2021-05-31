@@ -123,11 +123,9 @@ namespace BD
                             {
                                 case "Фотография": deleteRowSQL = $" DELETE FROM room where image={SearchSort}"; break;
                                 case "Тип_комнаты": deleteRowSQL = $" DELETE FROM room where id_roomtype={SearchSort}"; break;
-                                case "Кол-во кроватей": deleteRowSQL = $" DELETE FROM room where numberofseats='{Search_SQL.Text}'"; break;
+                                case "Колво_кроватей": deleteRowSQL = $" DELETE FROM room where numberofseats='{Search_SQL.Text}'"; break;
                                 case "Этаж": deleteRowSQL = $" DELETE FROM room where floor='{Search_SQL.Text}'"; break;
-                                case "Размер_оплаты": deleteRowSQL = $" DELETE FROM room where paymentl='{Search_SQL.Text}'"; break;
-                                case "Телевизор": deleteRowSQL = $" DELETE FROM room where tv='{Search_SQL.Text}'"; break;
-                                case "Холодильник": deleteRowSQL = $" DELETE FROM room where fridge='{Search_SQL.Text}'"; break;
+                                case "Размер_оплаты": deleteRowSQL = $" DELETE FROM room where payment='{Search_SQL.Text}'"; break;
                             }
                             NpgsqlCommand deleteCommand = new NpgsqlCommand(deleteRowSQL, _conn);
                             deleteCommand.ExecuteNonQuery();

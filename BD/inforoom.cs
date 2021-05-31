@@ -26,7 +26,7 @@ namespace BD
 
         private void button5_Click(object sender, EventArgs e)
         {
-                NpgsqlCommand command = new NpgsqlCommand($"UPDATE roon SET payment='{textBox2.Text}', floor='{textBox4.Text}', numberofseats='{textBox6.Text}',id_roomtype ={comboBox1.SelectedValue.ToString()}' WHERE id_room={id_room}", cconn);
+                NpgsqlCommand command = new NpgsqlCommand($"UPDATE room SET payment='{textBox2.Text}', floor='{textBox4.Text}', numberofseats='{textBox6.Text}',id_roomtype ={comboBox1.SelectedValue.ToString()}, tv ='{checkBox1.Checked}', fridge= '{checkBox2.Checked}', image ='{n_image}' WHERE id_room={n_id_room}", cconn);
                 if (textBox2.Text == "" || textBox4.Text == "" || textBox6.Text == "" || comboBox1.SelectedValue == null) { MessageBox.Show("Поле не может быть пустым"); return; }
                 try
                 {
@@ -37,8 +37,6 @@ namespace BD
                     MessageBox.Show("Проверьте введённые данные");
                     return;
                 }
-                
-
             textBox2.ReadOnly = true;
             textBox4.ReadOnly = true;
             textBox6.ReadOnly = true;
@@ -74,12 +72,12 @@ namespace BD
 
         private void CountText_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Search_SQL_TextChanged(object sender, EventArgs e)
         {
-                
+            LoadInfo();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -101,20 +99,23 @@ namespace BD
                 button5.Visible = true;
                 checkBox1.Enabled = true;
                 checkBox2.Enabled = true;
+                button4.Visible = true;
         }
         
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-          /*  if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
-                sql_info = ($"SELECT k.id_cassette AS ID,k.photo AS фотография,k.cost AS цена_кассеты,k.demand AS спрос ,f.film AS название_фильма, cq.cassette_quality AS качество_кассеты from cassette k left join films fs on(fs.id_film = k.id_film) left join film f on(f.id_film=fs.id_name_film) left join cassette_quality cq on(cq.id_cassette_quality=k.id_cassette_quality) where film LIKE '%{textBox7.Text}%'  AND id_videorental={id_from_videorental}");
+                sql_info = ($"SELECT a.id_client AS ID, a.surname_client as Фамилия, a.name_client as Имя, a.patronymic_client as Отчество ,t.city as Город, s.socialstatus as Соц_положение, a.adress as Адрес, a.job as Работа, a.birthday as День_рождения from client a left join city t on (t.id_city = a.id_city) left join socialstatus s on (s.id_socialstatus = a.id_socialstatus) where socialstatus LIKE '%{Search_SQL.Text}%' ");
                 InfoDataAdapter = new NpgsqlDataAdapter(sql_info, cconn);
                 DataTable dt = new DataTable();
                 ds.Reset();
                 InfoDataAdapter.Fill(ds);
                 dt = ds.Tables[0];
                 dataGridView1.DataSource = dt;
-            }*/
+                
+
+            }
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -148,15 +149,13 @@ namespace BD
             LoadInfo();
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            LoadInfo();
-        }
+
 
         public void LoadInfo() 
         {
             sql_info = ($"SELECT a.id_client AS ID, a.surname_client as Фамилия, a.name_client as Имя, a.patronymic_client as Отчество,t.city as Город, s.socialstatus as Соц_положение, a.adress as Адрес, a.job as Работа, a.birthday as Дата_Рождения From client a left join city t on(t.id_city=a.id_city) left join socialstatus s on(s.id_socialstatus=a.id_socialstatus) ORDER BY ID OFFSET  ((" + (numericUpDown1.Value - 1) + ") * " + 15 + ") " +
   "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
+
             InfoDataAdapter = new NpgsqlDataAdapter(sql_info, cconn);
             DataTable dt = new DataTable();
             ds.Reset();
@@ -164,10 +163,23 @@ namespace BD
             dt = ds.Tables[0];
             dataGridView1.DataSource = dt;
         }
-            
+        
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            LoadInfo();
+        }
+        
         private void button4_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image Files(*.BMP; *.JPG; *.GIF)| *.BMP; *.JPG; *.GIF";
+            dialog.ShowDialog();
+            if (dialog.CheckFileExists == true)
+            {
+                n_image = dialog.FileName;
+            }
+            else { MessageBox.Show("Вы не выбрали фото!"); }
+            pictureBox1.Image = Image.FromFile(n_image);
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -270,6 +282,7 @@ namespace BD
             checkBox1.Enabled = false;
             checkBox2.Enabled = false;
             button5.Visible = false;
+            button4.Visible = false; ;
             LoadTable();
         }
     }

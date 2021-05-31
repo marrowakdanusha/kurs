@@ -58,7 +58,6 @@ namespace BD
             this.label9 = new System.Windows.Forms.Label();
             this.CountText = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.Search_Type = new System.Windows.Forms.ComboBox();
             this.Searchlable = new System.Windows.Forms.Label();
             this.Search_SQL = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -352,26 +351,6 @@ namespace BD
             this.label10.TabIndex = 51;
             this.label10.Text = "Количество совпадений по запросу";
             // 
-            // Search_Type
-            // 
-            this.Search_Type.FormattingEnabled = true;
-            this.Search_Type.Items.AddRange(new object[] {
-            "ID",
-            "Фамилия",
-            "Имя",
-            "Отчество",
-            "Город",
-            "Адрес",
-            "Место работы",
-            "Соц. положение ",
-            "Дата рождения"});
-            this.Search_Type.Location = new System.Drawing.Point(543, 289);
-            this.Search_Type.MaximumSize = new System.Drawing.Size(127, 0);
-            this.Search_Type.Name = "Search_Type";
-            this.Search_Type.Size = new System.Drawing.Size(127, 21);
-            this.Search_Type.TabIndex = 55;
-            this.Search_Type.SelectedIndexChanged += new System.EventHandler(this.Search_Type_SelectedIndexChanged);
-            // 
             // Searchlable
             // 
             this.Searchlable.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -411,7 +390,6 @@ namespace BD
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(992, 554);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.Search_Type);
             this.Controls.Add(this.Searchlable);
             this.Controls.Add(this.Search_SQL);
             this.Controls.Add(this.CountText);
@@ -481,7 +459,6 @@ namespace BD
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox CountText;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox Search_Type;
         private System.Windows.Forms.Label Searchlable;
         private System.Windows.Forms.TextBox Search_SQL;
         private System.Windows.Forms.Button button5;
