@@ -170,10 +170,7 @@ namespace BD
                     Show();
                     LoadTable();
                     break;
-                case "типы номеров":
-                    Notes_SQL = "типы номеров";
-                    Notes_Load();
-                    break;
+                
 
             }
         }

@@ -82,7 +82,7 @@ namespace BD
             if (textBox2.Text == "") { MessageBox.Show("Введите этаж"); return; }
             if (textBox3.Text == "") { MessageBox.Show("Введите размер оплаты"); return; }
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || comboBox1.SelectedItem == null) { MessageBox.Show("Не записаны все поля!!!"); return; }
-            MessageBox.Show("Теперь нужно выбрать фотографию для кассеты");
+            MessageBox.Show("Теперь нужно выбрать фотографию для нашего номера");
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.ShowDialog();
             dialog.Filter = "Image Files(*.BMP; *.JPG; *.GIF)| *.BMP; *.JPG; *.GIF";

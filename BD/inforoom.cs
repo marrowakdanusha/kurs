@@ -22,20 +22,34 @@ namespace BD
         int id_room, n_id_room, SearchSort, id_client;
         string Note_choose,Notes_SQL, id_roomtype,  n_id_roomtype, birthday, surname_client,name_client, patronymic_client, job, id_city,id_socialstatus, adress, image, numberofseats, floor, payment, roomtype, searchText, tablecommand, info, sql_info, n_image, n_numberofseats, n_floor, n_payment;
 
-        private void Search_Type_SelectedIndexChanged(object sender, EventArgs e)
-        {
+      
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+                NpgsqlCommand command = new NpgsqlCommand($"UPDATE roon SET payment='{textBox2.Text}', floor='{textBox4.Text}', numberofseats='{textBox6.Text}',id_roomtype ={comboBox1.SelectedValue.ToString()}' WHERE id_room={id_room}", cconn);
+                if (textBox2.Text == "" || textBox4.Text == "" || textBox6.Text == "" || comboBox1.SelectedValue == null) { MessageBox.Show("Поле не может быть пустым"); return; }
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show("Проверьте введённые данные");
+                    return;
+                }
+                
+
+            textBox2.ReadOnly = true;
+            textBox4.ReadOnly = true;
+            textBox6.ReadOnly = true;
+            comboBox1.Enabled = false;
+            button5.Visible = false;
+            checkBox1.Enabled = false;
+            checkBox2.Enabled = false;
         }
 
-        private void CountText_TextChanged(object sender, EventArgs e)
-        {
+        
 
-        }
-
-        private void Search_SQL_TextChanged(object sender, EventArgs e)
-        {
-            SortSearch();
-        }
 
         public inforoom(NpgsqlConnection _conn, int id_room, string image, string numberofseats, string floor, string payment, string id_roomtype, bool tv, bool fridge, string Notes_SQL)
         {
@@ -51,6 +65,21 @@ namespace BD
             checkBox1.Checked = tv;
             checkBox2.Checked = fridge;
 
+        }
+
+        private void Search_Type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CountText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Search_SQL_TextChanged(object sender, EventArgs e)
+        {
+                
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -69,11 +98,24 @@ namespace BD
                 textBox4.ReadOnly = false;
                 textBox6.ReadOnly = false;
                 comboBox1.Enabled = true;
-                button3.Visible = true;
+                button5.Visible = true;
                 checkBox1.Enabled = true;
                 checkBox2.Enabled = true;
         }
-
+        
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+          /*  if (e.KeyCode == Keys.Enter)
+            {
+                sql_info = ($"SELECT k.id_cassette AS ID,k.photo AS фотография,k.cost AS цена_кассеты,k.demand AS спрос ,f.film AS название_фильма, cq.cassette_quality AS качество_кассеты from cassette k left join films fs on(fs.id_film = k.id_film) left join film f on(f.id_film=fs.id_name_film) left join cassette_quality cq on(cq.id_cassette_quality=k.id_cassette_quality) where film LIKE '%{textBox7.Text}%'  AND id_videorental={id_from_videorental}");
+                InfoDataAdapter = new NpgsqlDataAdapter(sql_info, cconn);
+                DataTable dt = new DataTable();
+                ds.Reset();
+                InfoDataAdapter.Fill(ds);
+                dt = ds.Tables[0];
+                dataGridView1.DataSource = dt;
+            }*/
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             switch (dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].HeaderText)
@@ -213,70 +255,7 @@ namespace BD
             }
             LoadInfo();
         }
-        public void SortSearch()
-        {
-            NpgsqlCommand command;
-            searchText = Search_SQL.Text;
-            if (Search_Type.SelectedItem == null) { MessageBox.Show("Тип поиска выбираем?!"); return; }
-            switch (Search_Type.SelectedItem)
-                /* Фамилия
-Имя
-Отчество
-Город
-Адрес
-Место работы
-Соц. положение 
-Дата рождения
-                */
-
-            {
-                case "ID":
-                    try
-                    {
-                        tablecommand = $"select * from search_client({Convert.ToInt32(searchText)},{numericUpDown1.Value - 1})";
-                    }
-                    catch (Exception ex) { return; }
-                    command = new NpgsqlCommand($"SELECT COUNT (*) from client where id_client={searchText}", cconn);
-                    CountText.Text = command.ExecuteScalar().ToString();
-                    break;
-                case "Тип_комнаты":
-                    command = new NpgsqlCommand($"Select id_roomtype from roomtype where roomtype LIKE '%{searchText}%'", cconn);
-                    SearchSort = Convert.ToInt32(command.ExecuteScalar());
-                    tablecommand = $"select * from search_roomtype({SearchSort}, {numericUpDown1.Value - 1})";
-                    command = new NpgsqlCommand($"SELECT COUNT (*) from room where id_roomtype = {SearchSort}", cconn);
-                    CountText.Text = command.ExecuteScalar().ToString();
-                    break;
-                case "Колво_кроватей":
-                    try
-                    {
-                        tablecommand = $"select * from search_seats({Convert.ToInt32(searchText)},{numericUpDown1.Value - 1})";
-                    }
-                    catch (Exception ex) { return; }
-                    command = new NpgsqlCommand($"SELECT COUNT (*) from room where numberofseats={searchText}", cconn);
-                    SearchSort = Convert.ToInt32(command.ExecuteScalar());
-                    CountText.Text = command.ExecuteScalar().ToString();
-                    break;
-                case "Этаж":
-                    try
-                    {
-                        tablecommand = $"select * from search_floor({Convert.ToInt32(searchText)},{numericUpDown1.Value - 1})";
-                    }
-                    catch (Exception ex) { return; }
-                    command = new NpgsqlCommand($"SELECT COUNT (*) from room where floor={searchText}", cconn);
-                    CountText.Text = command.ExecuteScalar().ToString();
-                    break;
-                case "Размер_оплаты":
-                    try
-                    {
-                        tablecommand = $"select * from search_payment({Convert.ToInt32(searchText)},{numericUpDown1.Value - 1})";
-                    }
-                    catch (Exception ex) { return; }
-                    command = new NpgsqlCommand($"SELECT COUNT (*) from room where payment={searchText}", cconn);
-                    CountText.Text = command.ExecuteScalar().ToString();
-                    break;
-            }
-            LoadTable();
-        }
+        
         private void inforoom_Load(object sender, EventArgs e)
         {
             numericUpDown1.Minimum = 1;
@@ -290,6 +269,7 @@ namespace BD
             comboBox1.Enabled = false;
             checkBox1.Enabled = false;
             checkBox2.Enabled = false;
+            button5.Visible = false;
             LoadTable();
         }
     }

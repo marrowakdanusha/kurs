@@ -49,7 +49,6 @@ namespace BD
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -62,6 +61,7 @@ namespace BD
             this.Search_Type = new System.Windows.Forms.ComboBox();
             this.Searchlable = new System.Windows.Forms.Label();
             this.Search_SQL = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -178,7 +178,7 @@ namespace BD
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.button2.Location = new System.Drawing.Point(17, 515);
+            this.button2.Location = new System.Drawing.Point(21, 515);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 28);
             this.button2.TabIndex = 32;
@@ -189,7 +189,7 @@ namespace BD
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.button1.Location = new System.Drawing.Point(858, 514);
+            this.button1.Location = new System.Drawing.Point(366, 515);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 28);
             this.button1.TabIndex = 31;
@@ -255,16 +255,6 @@ namespace BD
             this.label1.Size = new System.Drawing.Size(273, 31);
             this.label1.TabIndex = 24;
             this.label1.Text = "Информация о номере";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(513, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 23);
-            this.button3.TabIndex = 42;
-            this.button3.Text = "Применить изменение";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
             // 
             // textBox2
             // 
@@ -344,7 +334,7 @@ namespace BD
             // CountText
             // 
             this.CountText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.CountText.Location = new System.Drawing.Point(533, 523);
+            this.CountText.Location = new System.Drawing.Point(852, 520);
             this.CountText.Name = "CountText";
             this.CountText.ReadOnly = true;
             this.CountText.Size = new System.Drawing.Size(127, 20);
@@ -356,7 +346,7 @@ namespace BD
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(271, 522);
+            this.label10.Location = new System.Drawing.Point(590, 519);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(251, 19);
             this.label10.TabIndex = 51;
@@ -401,6 +391,18 @@ namespace BD
             this.Search_SQL.Size = new System.Drawing.Size(190, 20);
             this.Search_SQL.TabIndex = 53;
             this.Search_SQL.TextChanged += new System.EventHandler(this.Search_SQL_TextChanged);
+            this.Search_SQL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Times New Roman", 14.25F);
+            this.button5.Location = new System.Drawing.Point(172, 515);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(169, 28);
+            this.button5.TabIndex = 56;
+            this.button5.Text = "Изменить данные";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // inforoom
             // 
@@ -408,6 +410,7 @@ namespace BD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(992, 554);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.Search_Type);
             this.Controls.Add(this.Searchlable);
             this.Controls.Add(this.Search_SQL);
@@ -420,7 +423,6 @@ namespace BD
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -470,7 +472,6 @@ namespace BD
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -483,5 +484,6 @@ namespace BD
         private System.Windows.Forms.ComboBox Search_Type;
         private System.Windows.Forms.Label Searchlable;
         private System.Windows.Forms.TextBox Search_SQL;
+        private System.Windows.Forms.Button button5;
     }
 }
