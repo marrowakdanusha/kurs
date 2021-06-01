@@ -16,9 +16,15 @@ namespace BD
     {
         DataTable data;
         NpgsqlConnection cconn;
-        int id_room, n_id_client, SearchSort, id_client;
+        int id_room, n_id_client, SearchSort, id_client, day, month, year;
         string id_roomtype, n_id_roomtype, surname_client, name_client, patronymic_client, job, id_city, id_socialstatus, adress, searchText, tablecommand, info, sql_info, n_surname_client, n_name_client;
         string n_patronymic_client, n_job, n_birthday, n_id_city, n_id_socialstatus, n_adress, surname, name, patronymic;
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         DataSet ds = new DataSet();
         NpgsqlDataAdapter InfoDataAdapter, dataAdapter1;
 
@@ -40,7 +46,15 @@ namespace BD
 
 
         }
-
+        public void Load_DataTable(string command)
+        {
+            NpgsqlDataAdapter reader = new NpgsqlDataAdapter(command, cconn);
+            data = new DataTable();
+            DataSet ds = new DataSet();
+            ds.Reset();
+            reader.Fill(ds);
+            data = ds.Tables[0];
+        }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
@@ -85,6 +99,19 @@ namespace BD
 
         }
 
+        public void LoadInfo()
+        {
+            sql_info = ($"SELECT id_receipt AS ID, receipt as Квитанция From reservation ORDER BY ID OFFSET ((" + (numericUpDown1.Value - 1) + ") * " + 15 + ") " +
+  "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
+
+            InfoDataAdapter = new NpgsqlDataAdapter(sql_info, cconn);
+            DataTable dt = new DataTable();
+            ds.Reset();
+            InfoDataAdapter.Fill(ds);
+            dt = ds.Tables[0];
+            dataGridView1.DataSource = dt;
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -92,7 +119,9 @@ namespace BD
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-
+            day = dateTimePicker1.Value.Day;
+            month = dateTimePicker1.Value.Month;
+            year = dateTimePicker1.Value.Year;
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,12 +131,12 @@ namespace BD
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-
+            adress = textBox5.Text; 
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-
+            job = textBox4.Text;
         }
         public void Socialstatus_Load()
         {
