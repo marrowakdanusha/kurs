@@ -188,7 +188,7 @@ namespace BD
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.button1.Location = new System.Drawing.Point(366, 515);
+            this.button1.Location = new System.Drawing.Point(452, 515);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 28);
             this.button1.TabIndex = 31;
@@ -375,11 +375,11 @@ namespace BD
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.button5.Location = new System.Drawing.Point(172, 515);
+            this.button5.Location = new System.Drawing.Point(161, 515);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(169, 28);
+            this.button5.Size = new System.Drawing.Size(274, 28);
             this.button5.TabIndex = 56;
-            this.button5.Text = "Изменить данные";
+            this.button5.Text = "Применить изменения данных";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
