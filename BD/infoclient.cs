@@ -18,7 +18,7 @@ namespace BD
         NpgsqlConnection cconn;
         int id_room, n_id_client, SearchSort, id_client;
         string id_roomtype, n_id_roomtype, surname_client, name_client, patronymic_client, job, id_city, id_socialstatus, adress, searchText, tablecommand, info, sql_info, n_surname_client, n_name_client;
-        string n_patronymic_client, n_job, n_birthday, n_id_city, n_id_socialstatus, n_adress;
+        string n_patronymic_client, n_job, n_birthday, n_id_city, n_id_socialstatus, n_adress, surname, name, patronymic;
         DataSet ds = new DataSet();
         NpgsqlDataAdapter InfoDataAdapter, dataAdapter1;
 
@@ -60,6 +60,52 @@ namespace BD
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            surname = textBox1.Text;
+        }
+        
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            patronymic = textBox2.Text;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+            name = textBox2.Text;
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
