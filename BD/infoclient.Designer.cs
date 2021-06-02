@@ -58,6 +58,7 @@ namespace BD
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.изменитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -79,7 +80,7 @@ namespace BD
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(199, 38);
             this.button1.TabIndex = 64;
-            this.button1.Text = "Сохранить изменения";
+            this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -285,6 +286,8 @@ namespace BD
             // 
             // Меню
             // 
+            this.Меню.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.изменитьДанныеToolStripMenuItem});
             this.Меню.Name = "Меню";
             this.Меню.Size = new System.Drawing.Size(53, 20);
             this.Меню.Text = "Меню";
@@ -337,6 +340,14 @@ namespace BD
             this.button3.TabIndex = 86;
             this.button3.Text = "Сохранить изменения";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // изменитьДанныеToolStripMenuItem
+            // 
+            this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
+            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
+            this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.изменитьДанныеToolStripMenuItem_Click);
             // 
             // infoclient
             // 
@@ -413,5 +424,6 @@ namespace BD
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolStripMenuItem изменитьДанныеToolStripMenuItem;
     }
 }

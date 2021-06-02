@@ -42,7 +42,7 @@ namespace BD
   "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
             else if (Note_choose == "страны") sql = ("SELECT id_country AS ID, country as Страна From country ORDER BY ID OFFSET ((" + (numeric_Notes.Value - 1) + ") * " + 15 + ") " +
   "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
-            else if (Note_choose == "квитанции") sql = ("SELECT id_receipt AS ID, receipt as Квитанция From reservation ORDER BY ID OFFSET ((" + (numeric_Notes.Value - 1) + ") * " + 15 + ") " +
+            else if (Note_choose == "квитанции") sql = ("SELECT a.id_receipt AS ID, a.checkin_date as Дата_заселения, a.departure_date as Дата_выезда, a.payment_incash as Оплата_Наличкой, a.book as Бронирование, a.aim as Цель_приезда, p.id_client as Фамилия_клиента, s.id_extraservice as Доп_услуги, c.id_room as Номер_комнаты, j.id_staff From reservation a left join client p on(p.id_client = a.id_client) left join extraservice s on (s.id_extraservice = a.id_extraservice) left join room c on (c.id_room = a.id_room) left join staff j on (j.id_staff= a.id_staff) ORDER BY ID OFFSET ((" + (numeric_Notes.Value - 1) + ") * " + 15 + ") " +
   "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
             else if (Note_choose == "клиенты") sql = ("SELECT a.id_client AS ID, a.surname_client as Фамилия, a.name_client as Имя, a.patronymic_client as Отчество,t.city as Город, s.socialstatus as Соц_положение, a.adress as Адрес, a.job as Работа, a.birthday as Дата_Рождения From client a left join city t on(t.id_city=a.id_city) left join socialstatus s on(s.id_socialstatus=a.id_socialstatus) ORDER BY ID OFFSET  ((" + (numeric_Notes.Value - 1) + ") * " + 15 + ") " +
   "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");

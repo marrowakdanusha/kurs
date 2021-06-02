@@ -20,6 +20,25 @@ namespace BD
         string id_roomtype, n_id_roomtype, surname_client, name_client, patronymic_client, job, id_city, id_socialstatus, adress, searchText, tablecommand, info, sql_info, n_surname_client, n_name_client;
         string n_patronymic_client, n_job, n_birthday, n_id_city, n_id_socialstatus, n_adress, surname, name, patronymic;
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void изменитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.ReadOnly = false;
+            textBox2.ReadOnly = false;
+            textBox3.ReadOnly = false;
+            textBox4.ReadOnly = false;
+            textBox5.ReadOnly = false;
+            textBox6.ReadOnly = false;
+            comboBox1.Enabled = true;
+            comboBox2.Enabled = true;
+            button3.Visible = true;
+            dateTimePicker1.Enabled = true;
+        }
+
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -91,7 +110,7 @@ namespace BD
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
+           // new Addreceipt(info, cconn, id_client).ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)

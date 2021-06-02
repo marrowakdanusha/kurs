@@ -88,7 +88,7 @@ namespace BD
             if (textBox1.Text == "" || textBox3.Text == "" || comboBox1.SelectedItem == null || comboBox2.SelectedItem == null || comboBox3.SelectedItem == null || comboBox4.SelectedItem == null) { MessageBox.Show("Что-то было упущено..."); return; }
             if (dateTimePicker1.Value.Date < dateTimePicker2.Value.Date) { }
                 else { MessageBox.Show("Не планируйте свой отъезд даже не приехав к нам..."); return; }
-            command_Add = ($"INSERT INTO reservation(checkin_date, departure_date, book, payment_incash, aim ) VALUES('{year}/{month}/{day}', '{year}/{month}/{day}', '{checkBox2.Checked}',{checkBox1.Checked}, {textBox1.Text} ) RETURNING id_receipt");
+            command_Add = ($"INSERT INTO reservation(checkin_date, departure_date, payment_incash, book, aim, id_client, id_staff, id_extraservice, id_room) VALUES('{year}/{month}/{day}', '{year}/{month}/{day}', '{checkBox2.Checked}',{checkBox1.Checked}, {textBox1.Text}, {Convert.ToInt32(comboBox1.SelectedValue.ToString())}, {Convert.ToInt32(comboBox3.SelectedValue.ToString())}, {Convert.ToInt32(comboBox4.SelectedValue.ToString())}, {Convert.ToInt32(comboBox2.SelectedValue.ToString())} ) RETURNING id_receipt");
             Add_command = new NpgsqlCommand(command_Add, connection);
             try
             {
@@ -118,6 +118,11 @@ namespace BD
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
