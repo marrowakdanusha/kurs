@@ -19,10 +19,11 @@ namespace BD
         NpgsqlDataAdapter dataAdapter1 = null, InfoDataAdapter;
         DataTable data;
         NpgsqlConnection cconn;
-        int id_room, n_id_room, SearchSort, id_client;
-        string Note_choose,Notes_SQL, id_roomtype,  n_id_roomtype, birthday, surname_client,name_client, patronymic_client, job, id_city,id_socialstatus, adress, image, numberofseats, floor, payment, roomtype, searchText, tablecommand, info, sql_info, n_image, n_numberofseats, n_floor, n_payment;
+        int id_room, n_id_room, SearchSort;
+        string Note_choose,Notes_SQL, id_client, id_roomtype,  n_id_roomtype, surname_client,name_client, patronymic_client, job, id_city,id_socialstatus, adress, image, numberofseats, floor, payment, roomtype, searchText, tablecommand, info, sql_info, n_image, n_numberofseats, n_floor, n_payment;
+        DateTime birthday;
 
-      
+
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -122,29 +123,20 @@ namespace BD
             switch (dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].HeaderText)
             {
                 case "Фамилия":
-                    id_client = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                    id_client = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     surname_client = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                     name_client = dataGridView1.CurrentRow.Cells[2].Value.ToString();
                     patronymic_client = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                    job = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                    birthday = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                    id_city = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                    id_socialstatus = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-                    adress = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                    job = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                    birthday = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[8].Value.ToString());
+                    id_city = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    id_socialstatus = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    adress = dataGridView1.CurrentRow.Cells[6].Value.ToString();
                     Hide();
                     new infoclient(cconn, id_client, surname_client, name_client, patronymic_client, job, birthday, id_city, id_socialstatus, adress).ShowDialog();
                     Show();
                     LoadTable();
                     break;
-                /*case "города":
-                    Notes_SQL = "города";
-                    inforoom_Load();
-                    break;
-                case "соц. положения клиентов":
-                    Notes_SQL = "соц. положения клиентов";
-                    inforoom_Load();
-                    break; */
-
             }
             LoadInfo();
         }

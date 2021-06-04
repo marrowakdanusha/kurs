@@ -56,11 +56,11 @@ namespace BD
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.CountText = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.Searchlable = new System.Windows.Forms.Label();
             this.Search_SQL = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.CountText = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -330,27 +330,6 @@ namespace BD
             this.label9.Text = "Фото номера";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // CountText
-            // 
-            this.CountText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.CountText.Location = new System.Drawing.Point(852, 520);
-            this.CountText.Name = "CountText";
-            this.CountText.ReadOnly = true;
-            this.CountText.Size = new System.Drawing.Size(127, 20);
-            this.CountText.TabIndex = 52;
-            this.CountText.TextChanged += new System.EventHandler(this.CountText_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(590, 519);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(251, 19);
-            this.label10.TabIndex = 51;
-            this.label10.Text = "Количество совпадений по запросу";
-            // 
             // Searchlable
             // 
             this.Searchlable.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -382,6 +361,27 @@ namespace BD
             this.button5.Text = "Применить изменения данных";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(590, 519);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(251, 19);
+            this.label10.TabIndex = 51;
+            this.label10.Text = "Количество совпадений по запросу";
+            // 
+            // CountText
+            // 
+            this.CountText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.CountText.Location = new System.Drawing.Point(852, 520);
+            this.CountText.Name = "CountText";
+            this.CountText.ReadOnly = true;
+            this.CountText.Size = new System.Drawing.Size(127, 20);
+            this.CountText.TabIndex = 52;
+            this.CountText.TextChanged += new System.EventHandler(this.CountText_TextChanged);
             // 
             // inforoom
             // 
@@ -457,10 +457,10 @@ namespace BD
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox CountText;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label Searchlable;
         private System.Windows.Forms.TextBox Search_SQL;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox CountText;
     }
 }

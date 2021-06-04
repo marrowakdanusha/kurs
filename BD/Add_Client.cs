@@ -18,7 +18,8 @@ namespace BD
         NpgsqlCommand add_Command;
         DataTable data;
         NpgsqlConnection connection;
-            public Add_Client(string info, NpgsqlConnection cconn, int id_room)
+        
+        public Add_Client(string info, NpgsqlConnection cconn, int id_room)
         {
             connection = cconn;
             InitializeComponent();

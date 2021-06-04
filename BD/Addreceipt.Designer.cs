@@ -33,10 +33,8 @@ namespace BD
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +49,7 @@ namespace BD
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // checkBox2
@@ -89,16 +87,6 @@ namespace BD
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(400, 203);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 21);
-            this.label7.TabIndex = 55;
-            this.label7.Text = "Кол-во суток";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -117,14 +105,6 @@ namespace BD
             this.comboBox1.Size = new System.Drawing.Size(145, 21);
             this.comboBox1.TabIndex = 53;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(623, 202);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(145, 20);
-            this.textBox3.TabIndex = 52;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label5
             // 
@@ -170,7 +150,7 @@ namespace BD
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(400, 244);
+            this.label2.Location = new System.Drawing.Point(400, 203);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 21);
             this.label2.TabIndex = 60;
@@ -212,7 +192,7 @@ namespace BD
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(145, 20);
             this.dateTimePicker1.TabIndex = 64;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 5, 18, 11, 13, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2021, 5, 18, 0, 0, 0, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dateTimePicker2
@@ -221,6 +201,7 @@ namespace BD
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(145, 20);
             this.dateTimePicker2.TabIndex = 65;
+            this.dateTimePicker2.Value = new System.DateTime(2021, 6, 3, 0, 0, 0, 0);
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // comboBox2
@@ -252,22 +233,24 @@ namespace BD
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(623, 246);
+            this.textBox1.Location = new System.Drawing.Point(623, 205);
             this.textBox1.MaxLength = 50;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 69;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // button3
+            // button1
             // 
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(320, 321);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(199, 38);
-            this.button3.TabIndex = 71;
-            this.button3.Text = "Сохранить изменения";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button1.BackColor = System.Drawing.Color.FloralWhite;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(280, 323);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(257, 35);
+            this.button1.TabIndex = 72;
+            this.button1.Text = "Добавить квитанцию клиента";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Addreceipt
             // 
@@ -275,7 +258,7 @@ namespace BD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(787, 370);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.comboBox3);
@@ -289,10 +272,8 @@ namespace BD
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -310,10 +291,8 @@ namespace BD
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -328,6 +307,6 @@ namespace BD
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
     }
 }

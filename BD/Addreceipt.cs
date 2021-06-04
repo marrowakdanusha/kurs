@@ -17,7 +17,7 @@ namespace BD
         NpgsqlConnection connection;
         NpgsqlCommand command, Add_command;
         string command_Add, aim;
-        int day, month, year, id_room;
+        int day, month, year, day1, month1, year1, id_room;
         public Addreceipt(NpgsqlConnection __conn)
         {
             connection = __conn;
@@ -81,30 +81,27 @@ namespace BD
             data = ds.Tables[0];
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             if (textBox1.Text == "") { MessageBox.Show("Введите цель приезда"); return; }
-            if (Convert.ToInt32(textBox3.Text) < 1) { MessageBox.Show("Кол-во дней не может быть меньше одного"); return; }
-            if (textBox1.Text == "" || textBox3.Text == "" || comboBox1.SelectedItem == null || comboBox2.SelectedItem == null || comboBox3.SelectedItem == null || comboBox4.SelectedItem == null) { MessageBox.Show("Что-то было упущено..."); return; }
+            if (textBox1.Text == "" || comboBox1.SelectedItem == null || comboBox2.SelectedItem == null || comboBox3.SelectedItem == null || comboBox4.SelectedItem == null) { MessageBox.Show("Что-то было упущено..."); return; }
             if (dateTimePicker1.Value.Date < dateTimePicker2.Value.Date) { }
-                else { MessageBox.Show("Не планируйте свой отъезд даже не приехав к нам..."); return; }
-            command_Add = ($"INSERT INTO reservation(checkin_date, departure_date, payment_incash, book, aim, id_client, id_staff, id_extraservice, id_room) VALUES('{year}/{month}/{day}', '{year}/{month}/{day}', '{checkBox2.Checked}',{checkBox1.Checked}, {textBox1.Text}, {Convert.ToInt32(comboBox1.SelectedValue.ToString())}, {Convert.ToInt32(comboBox3.SelectedValue.ToString())}, {Convert.ToInt32(comboBox4.SelectedValue.ToString())}, {Convert.ToInt32(comboBox2.SelectedValue.ToString())} ) RETURNING id_receipt");
-            Add_command = new NpgsqlCommand(command_Add, connection);
+            else { MessageBox.Show("Не планируйте свой отъезд даже не приехав к нам..."); return; }
+            NpgsqlCommand addcommand = new NpgsqlCommand($"INSERT INTO reservation(checkin_date, departure_date, payment_incash, book, aim, id_client, id_staff, id_extraservice, id_room) VALUES('{year}/{month}/{day}', '{year1}/{month1}/{day1}', '{checkBox2.Checked}','{checkBox1.Checked}', '{textBox1.Text}', {(comboBox1.SelectedValue.ToString())}, {(comboBox3.SelectedValue.ToString())}, {(comboBox4.SelectedValue.ToString())}, {(comboBox2.SelectedValue.ToString())} )", connection);
             try
             {
-                Add_command.ExecuteNonQuery();
+                addcommand.ExecuteNonQuery();
                 Close();
             }
             catch (Exception ee)
             {
                 MessageBox.Show("Проверьте введённые данные");
             }
-        }
-     
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,17 +129,7 @@ namespace BD
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Convert.ToInt32(textBox3.Text);
-            }
-            catch (Exception exp)
-            {
-                textBox3.Clear();
-            }
-        }
+        
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -158,9 +145,9 @@ namespace BD
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            day = dateTimePicker1.Value.Day;
-            month = dateTimePicker1.Value.Month;
-            year = dateTimePicker1.Value.Year;
+            day1 = dateTimePicker2.Value.Day;
+            month1 = dateTimePicker2.Value.Month;
+            year1 = dateTimePicker2.Value.Year;
         }
     }
 }
