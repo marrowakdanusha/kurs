@@ -20,14 +20,68 @@ namespace BD
         DataTable data;
         NpgsqlConnection cconn;
         int id_room, n_id_room, SearchSort;
-        string Note_choose,Notes_SQL, id_client, id_roomtype,  n_id_roomtype, surname_client,name_client, patronymic_client, job, id_city,id_socialstatus, adress, image, numberofseats, floor, payment, roomtype, searchText, tablecommand, info, sql_info, n_image, n_numberofseats, n_floor, n_payment;
+        string Note_choose, id_client, Update_ID,  n_id_roomtype, surname_client,name_client, patronymic_client, job, id_city,id_socialstatus, adress, deleteRowSQL, tablecommand, info, sql_info, n_image, n_numberofseats, n_floor, n_payment;
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+/*
+            {
+                string deleteRowSQL = "";
+                if (Del_Type.SelectedItem != null)
+                {
+                    if (Del_Type.SelectedItem.ToString() == "Одну строку")
+                    {
+                        if (dataGridView1.Rows.Count > 1)
+                        {
+                            deleteRowSQL = $" DELETE FROM client WHERE id_room={dataGridView1.CurrentRow.Cells[0].Value}";
+                            NpgsqlCommand deleteCommand = new NpgsqlCommand(deleteRowSQL, _conn);
+                            deleteCommand.ExecuteNonQuery();
+                            LoadTable();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Таблица пустая!");
+                        }
+
+                    }
+                    if (Del_Type.SelectedItem.ToString() == "Все поля")
+                    {
+                        if (Search_SQL.Text != "")
+                        {
+                            switch (Search_Type.SelectedItem.ToString())
+                            {
+                                case "Фотография": deleteRowSQL = $" DELETE FROM client where surname_client={SearchSort}"; break;
+                                case "Тип_комнаты": deleteRowSQL = $" DELETE FROM room where id_roomtype={SearchSort}"; break;
+                                case "Колво_кроватей": deleteRowSQL = $" DELETE FROM room where numberofseats='{Search_SQL.Text}'"; break;
+                                case "Этаж": deleteRowSQL = $" DELETE FROM room where floor='{Search_SQL.Text}'"; break;
+                                case "Размер_оплаты": deleteRowSQL = $" DELETE FROM room where payment='{Search_SQL.Text}'"; break;
+                            }
+                            NpgsqlCommand deleteCommand = new NpgsqlCommand(deleteRowSQL, _conn);
+                            deleteCommand.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            deleteRowSQL = $" DELETE FROM room";
+                            NpgsqlCommand deleteCommand = new NpgsqlCommand(deleteRowSQL, _conn);
+                            deleteCommand.ExecuteNonQuery();
+                            NpgsqlCommand updateCommand = new NpgsqlCommand(Update_ID, _conn);
+                            updateCommand.ExecuteNonQuery();
+                        }
+                        LoadTable();
+                    }
+                }
+                else { MessageBox.Show("Выберите метод удаления записей в БД!"); }
+            }*/
+        }
+
         DateTime birthday;
 
 
 
         private void button5_Click(object sender, EventArgs e)
         {
-                NpgsqlCommand command = new NpgsqlCommand($"UPDATE room SET payment='{textBox2.Text}', floor='{textBox4.Text}', numberofseats='{textBox6.Text}',id_roomtype ={comboBox1.SelectedValue.ToString()}, tv ='{checkBox1.Checked}', fridge= '{checkBox2.Checked}', image ='{n_image}' WHERE id_room={n_id_room}", cconn);
+                NpgsqlCommand command = new NpgsqlCommand($"UPDATE room SET payment='{textBox2.Text}', floor='{textBox4.Text}', numberofseats='{textBox6.Text}',tv ='{checkBox1.Checked}', fridge= '{checkBox2.Checked}', image ='{n_image}', id_roomtype ={comboBox1.SelectedValue.ToString()} where id_room={n_id_room}", cconn);
                 if (textBox2.Text == "" || textBox4.Text == "" || textBox6.Text == "" || comboBox1.SelectedValue == null) { MessageBox.Show("Поле не может быть пустым"); return; }
                 try
                 {

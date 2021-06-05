@@ -25,6 +25,7 @@ namespace BD
         public infoclient(NpgsqlConnection _conn, string id_client,string surname_client,string name_client,string patronymic_client,string job,DateTime birthday,string id_city,string id_socialstatus,string adress)
         {
             InitializeComponent();
+            n_id_client = id_client;
             cconn = _conn;
             /* n_id_client = id_client;
              n_surname_client = surname_client;
@@ -49,7 +50,7 @@ namespace BD
 
         private void button3_Click(object sender, EventArgs e)
         {
-                NpgsqlCommand command = new NpgsqlCommand($"UPDATE client SET surname_client='{textBox1.Text}', patronymic_client='{textBox2.Text}', name_client='{textBox3.Text}', job='{textBox4.Text}', adress='{textBox5.Text}', id_city ={comboBox1.SelectedValue.ToString()}, id_socialstatus ={comboBox2.SelectedValue.ToString()}, WHERE id_room={n_id_room}", cconn);
+                NpgsqlCommand command = new NpgsqlCommand($"UPDATE client SET surname_client='{textBox1.Text}',name_client='{textBox3.Text}', patronymic_client='{textBox2.Text}', job='{textBox4.Text}', adress='{textBox5.Text}', id_city ={comboBox1.SelectedValue.ToString()}, id_socialstatus ={comboBox2.SelectedValue.ToString()} where id_client={n_id_client}", cconn);
                 if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" || comboBox1.SelectedValue == null || comboBox2.SelectedValue == null) { MessageBox.Show("Поле не может быть пустым"); return; }
                 try
                 {
@@ -100,7 +101,8 @@ namespace BD
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        { 
+        {
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -121,7 +123,7 @@ namespace BD
         }
         private void button1_Click(object sender, EventArgs e)
         {
-          //  new Addreceipt(__conn).ShowDialog();
+          //  new Addreceipt(_conn).ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -196,7 +198,7 @@ namespace BD
         }
         private void infoclient_Load(object sender, EventArgs e)
         {
-                textBox1.ReadOnly = true;
+            textBox1.ReadOnly = true;
             textBox2.ReadOnly = true;
             textBox3.ReadOnly = true;
             textBox4.ReadOnly = true;
@@ -209,8 +211,8 @@ namespace BD
             comboBox2.Enabled = false;
             button3.Visible = false;
             dateTimePicker1.Enabled = false;
-         //   Socialstatus_Load();
-          //  City_Load();
+            Socialstatus_Load();
+            City_Load();
         }
     }
 }

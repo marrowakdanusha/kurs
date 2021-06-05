@@ -59,8 +59,7 @@ namespace BD
             this.Searchlable = new System.Windows.Forms.Label();
             this.Search_SQL = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.CountText = new System.Windows.Forms.TextBox();
+            this.Del_Type = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -188,12 +187,13 @@ namespace BD
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.button1.Location = new System.Drawing.Point(452, 515);
+            this.button1.Location = new System.Drawing.Point(858, 515);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 28);
             this.button1.TabIndex = 31;
             this.button1.Text = "Удалить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -362,26 +362,17 @@ namespace BD
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // label10
+            // Del_Type
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(590, 519);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(251, 19);
-            this.label10.TabIndex = 51;
-            this.label10.Text = "Количество совпадений по запросу";
-            // 
-            // CountText
-            // 
-            this.CountText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.CountText.Location = new System.Drawing.Point(852, 520);
-            this.CountText.Name = "CountText";
-            this.CountText.ReadOnly = true;
-            this.CountText.Size = new System.Drawing.Size(127, 20);
-            this.CountText.TabIndex = 52;
-            this.CountText.TextChanged += new System.EventHandler(this.CountText_TextChanged);
+            this.Del_Type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Del_Type.FormattingEnabled = true;
+            this.Del_Type.Items.AddRange(new object[] {
+            "Одну строку",
+            "Все поля"});
+            this.Del_Type.Location = new System.Drawing.Point(700, 515);
+            this.Del_Type.Name = "Del_Type";
+            this.Del_Type.Size = new System.Drawing.Size(152, 21);
+            this.Del_Type.TabIndex = 57;
             // 
             // inforoom
             // 
@@ -389,11 +380,10 @@ namespace BD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(992, 554);
+            this.Controls.Add(this.Del_Type);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.Searchlable);
             this.Controls.Add(this.Search_SQL);
-            this.Controls.Add(this.CountText);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label9);
@@ -460,7 +450,6 @@ namespace BD
         private System.Windows.Forms.Label Searchlable;
         private System.Windows.Forms.TextBox Search_SQL;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox CountText;
+        private System.Windows.Forms.ComboBox Del_Type;
     }
 }
