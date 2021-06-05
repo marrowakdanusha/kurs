@@ -98,7 +98,7 @@ namespace BD
             }
              else if ( Note_choose == "Дополнительные услуги") { Hide(); new Addservice(__conn).ShowDialog(); Show(); }
              else if (Note_choose == "стафферы") { Hide(); new addstaff(__conn).ShowDialog(); Show(); }
-            // else if (Note_choose == "клиенты") { Hide(); new Add_Client(__conn).ShowDialog(); Show(); }
+          //  else if (Note_choose == "клиенты") { Hide(); new Add_Client(__conn).ShowDialog(); Show(); }
             else if (Note_choose == "квитанции") { Hide(); new Addreceipt(__conn).ShowDialog(); Show(); }
             else if (Note_choose == "города") { Hide(); new addcity(__conn).ShowDialog(); Show(); }
 
@@ -189,7 +189,7 @@ namespace BD
                                     deleteRowSQL = $" DELETE FROM socialstatus WHERE id_socialstatus={dataGridView1.CurrentRow.Cells[0].Value}";
                                     count = $"Select Count(*) from client where id_socialstatus={dataGridView1.CurrentRow.Cells[0].Value}";
                                     countdel1 = new NpgsqlCommand(count, __conn);
-                                    result = MessageBox.Show($"При удалении будет удалено {countdel1.ExecuteScalar()} клиентов.",
+                                     result = MessageBox.Show($"При удалении будет удалено {countdel1.ExecuteScalar()} клиентов.",
                                         "Выберите один из вариантов", MessageBoxButtons.YesNo, MessageBoxIcon.Information,
                                         MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly); break;
                                 //города зависят
@@ -241,7 +241,7 @@ namespace BD
                         switch (Note_choose)
                         {
                             case "типы номеров":
-                                Update_ID = "ALTER SEQUENCE roomtype_id_roomtype_seq RESTART WITH 1" + ";" +
+                                Update_ID = "ALTER SEQUENCE roomtype_id_seq RESTART WITH 1" + ";" +
                      "UPDATE roomtype SET id_roomtype = DEFAULT";
                                 deleteRowSQL = " DELETE FROM roomtype";
                                 result = MessageBox.Show("При удалении будут удалены все номера", "Выберите один из вариантов.", MessageBoxButtons.YesNo,
@@ -249,7 +249,7 @@ namespace BD
                                 break;
 
                             case "Дополнительные услуги":
-                                Update_ID = "ALTER SEQUENCE extraservice_id_extraservice_seq RESTART WITH 1" + ";" +
+                                Update_ID = "ALTER SEQUENCE extraservice_id_seq RESTART WITH 1" + ";" +
                      "UPDATE extraservice SET id_extraservice = DEFAULT";
                                 deleteRowSQL = $" DELETE FROM extraservice";
                                 result = MessageBox.Show("При удалении будут удалены все номера", "Выберите один из вариантов.", MessageBoxButtons.YesNo,
@@ -257,7 +257,7 @@ namespace BD
                                 break;
 
                             case "стафферы":
-                                Update_ID = "ALTER SEQUENCE staff_id_staff_seq RESTART WITH 1" + ";" +
+                                Update_ID = "ALTER SEQUENCE staff_id_seq RESTART WITH 1" + ";" +
                      "UPDATE staff SET id_staff = DEFAULT";
                                 deleteRowSQL = $" DELETE FROM staff";
                                 result = MessageBox.Show("При удалении будут удалены все стафферы", "Выберите один из вариантов.", MessageBoxButtons.YesNo,
@@ -265,7 +265,7 @@ namespace BD
                                 break;
 
                             case "соц. положения клиентов":
-                                Update_ID = "ALTER SEQUENCE socialstatus_id_socialstatus_seq RESTART WITH 1" + ";" +
+                                Update_ID = "ALTER SEQUENCE socialstatus_id_seq RESTART WITH 1" + ";" +
                             "UPDATE socialstatus SET id_socialstatus = DEFAULT";
                                 deleteRowSQL = $" DELETE FROM socialstatus";
                                 result = MessageBox.Show("При удалении будут удалены все клиенты", "Выберите один из вариантов.", MessageBoxButtons.YesNo,
@@ -273,7 +273,7 @@ namespace BD
                                 break;
 
                             case "страны":
-                                Update_ID = "ALTER SEQUENCE country_id_country_seq RESTART WITH 1" + ";" +
+                                Update_ID = "ALTER SEQUENCE country_id_seq RESTART WITH 1" + ";" +
                      "UPDATE country SET id_country = DEFAULT";
                                 deleteRowSQL = $" DELETE FROM country";
                                 result = MessageBox.Show("При удалении будут удалены все города", "Выберите один из вариантов.", MessageBoxButtons.YesNo,
@@ -289,7 +289,7 @@ namespace BD
                                 break;
 
                             case "клиенты":
-                                Update_ID = "ALTER SEQUENCE client_id_client_seq RESTART WITH 1" + ";" +
+                                Update_ID = "ALTER SEQUENCE client_id_seq RESTART WITH 1" + ";" +
                      "UPDATE client SET id_client = DEFAULT";
                                 deleteRowSQL = " DELETE FROM client";
                                 result = MessageBox.Show("При удалении будут удалены все квитанции", "Выберите один из вариантов.", MessageBoxButtons.YesNo,
@@ -297,7 +297,7 @@ namespace BD
                                 break;
 
                             case "города":
-                                Update_ID = "ALTER SEQUENCE city_notes_id_city_seq RESTART WITH 1" + ";" +
+                                Update_ID = "ALTER SEQUENCE city_id_seq RESTART WITH 1" + ";" +
                      "UPDATE city SET id_city = DEFAULT";
                                 deleteRowSQL = " DELETE FROM city";
                                 result = MessageBox.Show("При удалении будут удалены все клиенты", "Выберите один из вариантов.", MessageBoxButtons.YesNo,

@@ -14,13 +14,14 @@ namespace BD
     public partial class Add_Client : Form
     {
         string command_add, surname, name, patronymic, adress, jobplace;
-        int year, month, day;
+        int year, month, day, n_id_room;
         NpgsqlCommand add_Command;
         DataTable data;
         NpgsqlConnection connection;
         
         public Add_Client(string info, NpgsqlConnection cconn, int id_room)
         {
+            n_id_room = id_room;
             connection = cconn;
             InitializeComponent();
         }
@@ -138,6 +139,21 @@ namespace BD
 
         }
 
+        private void comboBox2_SelectedIndexChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             surname = textBox1.Text;
@@ -167,8 +183,14 @@ namespace BD
 
         private void Add_Client_Load(object sender, EventArgs e)
         {
+            
             socialstatus_Load();
             city_Load();
+           /*     string command1 = $"SELECT id_room from room where id_room = {n_id_room}";
+                NpgsqlCommand acommand = new NpgsqlCommand(command1, connection);
+                comboBox7.Text = acommand.ExecuteScalar().ToString();
+                comboBox7.Enabled = false;*/
+            
         }
 
        
