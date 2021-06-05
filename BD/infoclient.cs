@@ -49,9 +49,28 @@ namespace BD
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-        }
-
+                NpgsqlCommand command = new NpgsqlCommand($"UPDATE client SET surname_client='{textBox1.Text}', patronymic_client='{textBox2.Text}', name_client='{textBox3.Text}', job='{textBox4.Text}', adress='{textBox5.Text}', id_city ={comboBox1.SelectedValue.ToString()}, id_socialstatus ={comboBox2.SelectedValue.ToString()}, WHERE id_room={n_id_room}", cconn);
+                if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" || comboBox1.SelectedValue == null || comboBox2.SelectedValue == null) { MessageBox.Show("Поле не может быть пустым"); return; }
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show("Проверьте введённые данные");
+                    return;
+                }
+                textBox1.ReadOnly = true;
+                textBox2.ReadOnly = true;
+                textBox3.ReadOnly = true;
+                textBox4.ReadOnly = true;
+                textBox5.ReadOnly = true;
+                comboBox1.Enabled = false;
+                comboBox2.Enabled = false;
+                button3.Visible = false;
+                dateTimePicker1.Enabled = false;
+            }
+        
         private void изменитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             textBox1.ReadOnly = false;
@@ -177,7 +196,7 @@ namespace BD
         }
         private void infoclient_Load(object sender, EventArgs e)
         {
-            textBox1.ReadOnly = true;
+                textBox1.ReadOnly = true;
             textBox2.ReadOnly = true;
             textBox3.ReadOnly = true;
             textBox4.ReadOnly = true;

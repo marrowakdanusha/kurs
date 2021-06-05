@@ -281,7 +281,7 @@ namespace BD
                                 break;
 
                             case "квитанции":
-                                Update_ID = "ALTER SEQUENCE receipt_id_receipt_seq RESTART WITH 1" + ";" +
+                                Update_ID = "ALTER SEQUENCE reservation_id_seq RESTART WITH 1" + ";" +
                      "UPDATE receipt SET id_receipt = DEFAULT";
                                 deleteRowSQL = " DELETE FROM reservation";
                                 result = MessageBox.Show("При удалении будут удалены все занятия", "Выберите один из вариантов.", MessageBoxButtons.YesNo,
