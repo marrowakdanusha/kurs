@@ -27,15 +27,6 @@ namespace BD
             InitializeComponent();
             n_id_client = id_client;
             cconn = _conn;
-            /* n_id_client = id_client;
-             n_surname_client = surname_client;
-             n_name_client = name_client;
-             n_patronymic_client = patronymic_client;
-             n_job = job;
-             n_birthday = birthday;
-             n_id_city= id_city;
-             n_id_socialstatus = id_socialstatus;
-             n_adress= adress;*/
             textBox1.Text = surname_client;
             textBox3.Text = name_client;
             textBox2.Text = patronymic_client;
@@ -87,8 +78,9 @@ namespace BD
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-
+            LoadInfo();
         }
+
         public void Load_DataTable(string command)
         {
             NpgsqlDataAdapter reader = new NpgsqlDataAdapter(command, cconn);
@@ -199,6 +191,9 @@ namespace BD
         }
         private void infoclient_Load(object sender, EventArgs e)
         {
+            Socialstatus_Load();
+            City_Load();
+            LoadInfo();
             textBox1.ReadOnly = true;
             textBox2.ReadOnly = true;
             textBox3.ReadOnly = true;
@@ -212,9 +207,7 @@ namespace BD
             comboBox2.Enabled = false;
             button3.Visible = false;
             dateTimePicker1.Enabled = false;
-            Socialstatus_Load();
-            City_Load();
-            LoadInfo();
+          
         }
     }
 }

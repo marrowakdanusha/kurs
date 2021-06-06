@@ -59,7 +59,6 @@ namespace BD
             this.Searchlable = new System.Windows.Forms.Label();
             this.Search_SQL = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.Del_Type = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -362,25 +361,12 @@ namespace BD
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // Del_Type
-            // 
-            this.Del_Type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Del_Type.FormattingEnabled = true;
-            this.Del_Type.Items.AddRange(new object[] {
-            "Одну строку",
-            "Все поля"});
-            this.Del_Type.Location = new System.Drawing.Point(700, 515);
-            this.Del_Type.Name = "Del_Type";
-            this.Del_Type.Size = new System.Drawing.Size(152, 21);
-            this.Del_Type.TabIndex = 57;
-            // 
             // inforoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(992, 554);
-            this.Controls.Add(this.Del_Type);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.Searchlable);
             this.Controls.Add(this.Search_SQL);
@@ -450,6 +436,5 @@ namespace BD
         private System.Windows.Forms.Label Searchlable;
         private System.Windows.Forms.TextBox Search_SQL;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ComboBox Del_Type;
     }
 }
