@@ -326,6 +326,7 @@ namespace BD
             this.button2.TabIndex = 87;
             this.button2.Text = "Удалить";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // infoclient
             // 

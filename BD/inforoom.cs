@@ -101,7 +101,8 @@ namespace BD
         private void button2_Click(object sender, EventArgs e)
         {
                 new Add_Client(info, cconn, n_id_room).ShowDialog();
-            }
+                LoadInfo(); Show();
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

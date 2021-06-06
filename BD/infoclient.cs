@@ -117,6 +117,18 @@ namespace BD
         private void button1_Click(object sender, EventArgs e)
         {
             new Addreceipt(cconn).ShowDialog();
+            LoadInfo(); Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = new DialogResult();
+            string command = "";
+            command = $" Delete FROM reservation WHERE id_receipt ={dataGridView1.CurrentRow.Cells[0].Value}";
+            if (result == DialogResult.No) { return; }
+            NpgsqlCommand delete = new NpgsqlCommand(command, cconn);
+            delete.ExecuteNonQuery();
+            LoadInfo();
         }
 
         private void button2_Click(object sender, EventArgs e)

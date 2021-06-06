@@ -202,7 +202,7 @@ namespace BD
                                      MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly); break;
                                 //ne зависят
                                 case "квитанции":
-                                    deleteRowSQL = $" DELETE FROM receipt WHERE id_receipt={dataGridView1.CurrentRow.Cells[0].Value}";
+                                    deleteRowSQL = $" DELETE FROM reservation WHERE id_receipt={dataGridView1.CurrentRow.Cells[0].Value}";
                                      break;
                                 //квитанция зависят
                                 case "клиенты":
