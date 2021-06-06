@@ -52,11 +52,12 @@ namespace BD
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Меню = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button2 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.Del_Type = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -250,7 +251,7 @@ namespace BD
             this.Меню});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(793, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(787, 24);
             this.menuStrip1.TabIndex = 83;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -268,17 +269,6 @@ namespace BD
             this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
             this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.изменитьДанныеToolStripMenuItem_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(39, 469);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(199, 38);
-            this.button2.TabIndex = 64;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // numericUpDown1
             // 
@@ -311,7 +301,7 @@ namespace BD
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(293, 469);
+            this.button3.Location = new System.Drawing.Point(360, 469);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(199, 38);
             this.button3.TabIndex = 86;
@@ -328,12 +318,36 @@ namespace BD
             this.textBox5.TabIndex = 73;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
+            // Del_Type
+            // 
+            this.Del_Type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Del_Type.FormattingEnabled = true;
+            this.Del_Type.Items.AddRange(new object[] {
+            "Одну строку",
+            "Все поля"});
+            this.Del_Type.Location = new System.Drawing.Point(39, 474);
+            this.Del_Type.Name = "Del_Type";
+            this.Del_Type.Size = new System.Drawing.Size(152, 21);
+            this.Del_Type.TabIndex = 88;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F);
+            this.button2.Location = new System.Drawing.Point(204, 474);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 28);
+            this.button2.TabIndex = 87;
+            this.button2.Text = "Удалить";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // infoclient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(793, 506);
+            this.ClientSize = new System.Drawing.Size(787, 516);
+            this.Controls.Add(this.Del_Type);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label11);
@@ -351,7 +365,6 @@ namespace BD
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox2);
@@ -394,11 +407,12 @@ namespace BD
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Меню;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem изменитьДанныеToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.ComboBox Del_Type;
+        private System.Windows.Forms.Button button2;
     }
 }

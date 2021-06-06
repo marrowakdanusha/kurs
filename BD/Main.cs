@@ -164,7 +164,7 @@ namespace BD
                     tv = Convert.ToBoolean(Room_table.CurrentRow.Cells[6].Value);
                     fridge = Convert.ToBoolean(Room_table.CurrentRow.Cells[7].Value);
                     Hide();
-                    new inforoom(_conn, id_room, image, numberofseats, floor, payment, id_roomtype, tv, fridge, Notes_SQL).ShowDialog();
+                    new inforoom(_conn, image, numberofseats, floor, payment, id_roomtype, tv, fridge, id_room).ShowDialog();
                     Show();
                     LoadTable();
                     break;

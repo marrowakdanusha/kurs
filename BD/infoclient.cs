@@ -20,7 +20,7 @@ namespace BD
         NpgsqlConnection cconn;
         int id_room, day, month, year;
         string job, adress, sql_info, n_surname_client, n_name_client;
-        string n_patronymic_client, n_id_client, n_job, n_birthday, n_id_city, n_id_socialstatus, n_adress, surname, name, patronymic;
+        string  n_id_client, n_id_city, n_id_socialstatus;
 
         public infoclient(NpgsqlConnection _conn, string id_client,string surname_client,string name_client,string patronymic_client,string job,DateTime birthday,string id_city,string id_socialstatus,string adress)
         {
@@ -102,7 +102,8 @@ namespace BD
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+            LoadInfo();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -123,7 +124,7 @@ namespace BD
         }
         private void button1_Click(object sender, EventArgs e)
         {
-          //  new Addreceipt(_conn).ShowDialog();
+            new Addreceipt(cconn).ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -213,6 +214,7 @@ namespace BD
             dateTimePicker1.Enabled = false;
             Socialstatus_Load();
             City_Load();
+            LoadInfo();
         }
     }
 }

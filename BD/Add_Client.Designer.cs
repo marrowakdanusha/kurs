@@ -49,14 +49,14 @@ namespace BD
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FloralWhite;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(503, 246);
+            this.button1.Location = new System.Drawing.Point(295, 246);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(169, 35);
             this.button1.TabIndex = 27;
@@ -248,20 +248,20 @@ namespace BD
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Linen;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(36, 199);
+            this.label2.Location = new System.Drawing.Point(36, 204);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 21);
-            this.label2.TabIndex = 41;
+            this.label2.TabIndex = 42;
             this.label2.Text = "Номер";
             // 
-            // comboBox7
+            // comboBox9
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(187, 201);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(154, 21);
-            this.comboBox7.TabIndex = 42;
-            this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Location = new System.Drawing.Point(187, 204);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(152, 21);
+            this.comboBox9.TabIndex = 41;
+            this.comboBox9.SelectedIndexChanged += new System.EventHandler(this.comboBox9_SelectedIndexChanged);
             // 
             // Add_Client
             // 
@@ -269,8 +269,8 @@ namespace BD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(774, 293);
-            this.Controls.Add(this.comboBox7);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox9);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.purpose);
@@ -317,6 +317,6 @@ namespace BD
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox comboBox9;
     }
 }

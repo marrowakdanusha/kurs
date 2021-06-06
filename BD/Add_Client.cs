@@ -14,14 +14,14 @@ namespace BD
     public partial class Add_Client : Form
     {
         string command_add, surname, name, patronymic, adress, jobplace;
-        int year, month, day, n_id_room;
+        int year, month, day, id_room;
         NpgsqlCommand add_Command;
         DataTable data;
         NpgsqlConnection connection;
         
-        public Add_Client(string info, NpgsqlConnection cconn, int id_room)
+        public Add_Client(string info, NpgsqlConnection cconn, int n_id_room)
         {
-            n_id_room = id_room;
+            id_room = n_id_room;
             connection = cconn;
             InitializeComponent();
         }
@@ -76,9 +76,11 @@ namespace BD
             if (comboBox1.SelectedItem != null && comboBox4.SelectedItem != null && textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "")
                 if (dateTimePicker1.Value.Date < DateTime.Now.Date) { }
             else { MessageBox.Show("Не планируйте своё рождения на будущее..."); return; }
-            command_add = $"INSERT INTO client(surname_client, name_client, patronymic_client, id_city, id_socialstatus, adress, job, birthday) VALUES('{textBox1.Text}','{textBox3.Text}','{textBox4.Text}',{Convert.ToInt32(comboBox4.SelectedValue.ToString())},{Convert.ToInt32(comboBox1.SelectedValue.ToString())},'{textBox5.Text}','{textBox2.Text}','{year}/{month}/{day}')";
+            
+            command_add = $"INSERT INTO client(surname_client, name_client, patronymic_client, id_city, id_socialstatus, adress, job, birthday, id_room) VALUES('{textBox1.Text}','{textBox3.Text}','{textBox4.Text}',{Convert.ToInt32(comboBox4.SelectedValue.ToString())},{Convert.ToInt32(comboBox1.SelectedValue.ToString())},'{textBox5.Text}','{textBox2.Text}','{year}/{month}/{day}', {id_room}) RETURNING id_client"; 
             add_Command = new NpgsqlCommand(command_add, connection);
-            try
+            
+                try
             {
                 add_Command.ExecuteNonQuery();
                 Close();
@@ -149,6 +151,11 @@ namespace BD
 
         }
 
+        private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
@@ -183,17 +190,16 @@ namespace BD
 
         private void Add_Client_Load(object sender, EventArgs e)
         {
+       
+                string command1 = $"SELECT id_room FROM room where id_room = {id_room}";
+                NpgsqlCommand acommand = new NpgsqlCommand(command1, connection);
+                comboBox9.Text = acommand.ExecuteScalar().ToString();
+                comboBox9.Enabled = false;
             
+
             socialstatus_Load();
             city_Load();
-           /*     string command1 = $"SELECT id_room from room where id_room = {n_id_room}";
-                NpgsqlCommand acommand = new NpgsqlCommand(command1, connection);
-                comboBox7.Text = acommand.ExecuteScalar().ToString();
-                comboBox7.Enabled = false;*/
-            
         }
-
-       
 
         private void label9_Click(object sender, EventArgs e)
         {

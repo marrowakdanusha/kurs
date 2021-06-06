@@ -175,7 +175,7 @@ namespace BD
                                 //комната зависит
                                 case "Дополнительные услуги":
                                     deleteRowSQL = $" DELETE FROM extraservice WHERE id_extraservice={dataGridView1.CurrentRow.Cells[0].Value}";
-                                    count = $"Select Count(*) from service where id_extraservice={dataGridView1.CurrentRow.Cells[0].Value}";
+                                    count = $"Select Count(*) from reservation where id_extraservice={dataGridView1.CurrentRow.Cells[0].Value}";
                                     countdel1 = new NpgsqlCommand(count, __conn);
                                     result = MessageBox.Show($"При удалении будет удалено {countdel1.ExecuteScalar()} номеров.",
                                         "Выберите один из вариантов", MessageBoxButtons.YesNo, MessageBoxIcon.Information,

@@ -19,60 +19,24 @@ namespace BD
         NpgsqlDataAdapter dataAdapter1 = null, InfoDataAdapter;
         DataTable data;
         NpgsqlConnection cconn;
-        int id_room, n_id_room, SearchSort;
-        string Note_choose, id_client, Update_ID,  n_id_roomtype, surname_client,name_client, patronymic_client, job, id_city,id_socialstatus, adress, deleteRowSQL, tablecommand, info, sql_info, n_image, n_numberofseats, n_floor, n_payment;
+        int n_id_room, SearchSort;
+        string id_client, n_id_roomtype, surname_client,name_client, patronymic_client, job, id_city,id_socialstatus, adress, info, sql_info, n_image;
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-/*
-            {
-                string deleteRowSQL = "";
-                if (Del_Type.SelectedItem != null)
-                {
-                    if (Del_Type.SelectedItem.ToString() == "Одну строку")
-                    {
-                        if (dataGridView1.Rows.Count > 1)
-                        {
-                            deleteRowSQL = $" DELETE FROM client WHERE id_room={dataGridView1.CurrentRow.Cells[0].Value}";
-                            NpgsqlCommand deleteCommand = new NpgsqlCommand(deleteRowSQL, _conn);
-                            deleteCommand.ExecuteNonQuery();
-                            LoadTable();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Таблица пустая!");
-                        }
+            DialogResult result = new DialogResult();
+            string command = "";
+            command = $" Delete FROM client WHERE id_client ={dataGridView1.CurrentRow.Cells[0].Value}";
 
-                    }
-                    if (Del_Type.SelectedItem.ToString() == "Все поля")
-                    {
-                        if (Search_SQL.Text != "")
-                        {
-                            switch (Search_Type.SelectedItem.ToString())
-                            {
-                                case "Фотография": deleteRowSQL = $" DELETE FROM client where surname_client={SearchSort}"; break;
-                                case "Тип_комнаты": deleteRowSQL = $" DELETE FROM room where id_roomtype={SearchSort}"; break;
-                                case "Колво_кроватей": deleteRowSQL = $" DELETE FROM room where numberofseats='{Search_SQL.Text}'"; break;
-                                case "Этаж": deleteRowSQL = $" DELETE FROM room where floor='{Search_SQL.Text}'"; break;
-                                case "Размер_оплаты": deleteRowSQL = $" DELETE FROM room where payment='{Search_SQL.Text}'"; break;
-                            }
-                            NpgsqlCommand deleteCommand = new NpgsqlCommand(deleteRowSQL, _conn);
-                            deleteCommand.ExecuteNonQuery();
-                        }
-                        else
-                        {
-                            deleteRowSQL = $" DELETE FROM room";
-                            NpgsqlCommand deleteCommand = new NpgsqlCommand(deleteRowSQL, _conn);
-                            deleteCommand.ExecuteNonQuery();
-                            NpgsqlCommand updateCommand = new NpgsqlCommand(Update_ID, _conn);
-                            updateCommand.ExecuteNonQuery();
-                        }
-                        LoadTable();
-                    }
-                }
-                else { MessageBox.Show("Выберите метод удаления записей в БД!"); }
-            }*/
+            NpgsqlCommand lessons = new NpgsqlCommand($"Select count (*) from reservation where id_client={dataGridView1.CurrentRow.Cells[0].Value}", cconn);
+            result = MessageBox.Show($"При удалении будут удалены {lessons.ExecuteScalar().ToString()} кол-во квитанций",
+                 "Выберите один из вариантов.", MessageBoxButtons.YesNo, MessageBoxIcon.Information,
+                  MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            if (result == DialogResult.No) { return; }
+            NpgsqlCommand delete = new NpgsqlCommand(command, cconn);
+            delete.ExecuteNonQuery();
+            LoadInfo();
         }
 
         DateTime birthday;
@@ -104,9 +68,8 @@ namespace BD
         
 
 
-        public inforoom(NpgsqlConnection _conn, int id_room, string image, string numberofseats, string floor, string payment, string id_roomtype, bool tv, bool fridge, string Notes_SQL)
+        public inforoom(NpgsqlConnection _conn, string image, string numberofseats, string floor, string payment, string id_roomtype, bool tv, bool fridge, int id_room)
         {
-            Note_choose = Notes_SQL;
             InitializeComponent();
             cconn = _conn;
             n_id_room = id_room;
@@ -137,7 +100,7 @@ namespace BD
 
         private void button2_Click(object sender, EventArgs e)
         {
-                new Add_Client(info, cconn, id_room).ShowDialog();
+                new Add_Client(info, cconn, n_id_room).ShowDialog();
             }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -199,8 +162,8 @@ namespace BD
 
         public void LoadInfo() 
         {
-          //  where a.id_room = { n_id_room}
-            sql_info = ($"SELECT a.id_client AS ID, a.surname_client as Фамилия, a.name_client as Имя, a.patronymic_client as Отчество,t.city as Город, s.socialstatus as Соц_положение, a.adress as Адрес, a.job as Работа, a.birthday as Дата_Рождения From client a left join city t on(t.id_city=a.id_city) left join socialstatus s on(s.id_socialstatus=a.id_socialstatus) ORDER BY ID OFFSET  ((" + (numericUpDown1.Value - 1) + ") * " + 15 + ") " +
+            
+            sql_info = ($"SELECT a.id_client AS ID, a.surname_client as Фамилия, a.name_client as Имя, a.patronymic_client as Отчество,t.city as Город, s.socialstatus as Соц_положение, a.adress as Адрес, a.job as Работа, a.birthday as Дата_Рождения From client a left join city t on(t.id_city=a.id_city) left join socialstatus s on(s.id_socialstatus=a.id_socialstatus) where a.id_room = { n_id_room} ORDER BY ID OFFSET  ((" + (numericUpDown1.Value - 1) + ") * " + 15 + ") " +
   "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
 
             InfoDataAdapter = new NpgsqlDataAdapter(sql_info, cconn);
