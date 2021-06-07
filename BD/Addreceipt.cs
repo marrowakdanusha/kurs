@@ -16,30 +16,32 @@ namespace BD
         DataTable data;
         NpgsqlConnection connection;
         NpgsqlCommand command, Add_command;
-        string command_Add, aim;
-        int day, month, year, day1, month1, year1, id_room;
-        public Addreceipt(NpgsqlConnection __conn)
+        string command_Add, aim, id_client;
+        int day, month, year, day1, month1, year1, n1_id_room;
+        public Addreceipt(NpgsqlConnection __conn, int id_room1, string n_id_client)
         {
             connection = __conn;
+            n1_id_room = id_room1;
+            id_client = n_id_client;
             InitializeComponent();
         }
 
         private void Addreceipt_Load(object sender, EventArgs e)
         {
-            client_Load();
-            staff_Load();
-            room_Load();
+            string command1 = $"SELECT id_room FROM room where id_room = {n1_id_room}";
+            NpgsqlCommand acommand = new NpgsqlCommand(command1, connection);
+            comboBox2.Text = acommand.ExecuteScalar().ToString();
+            comboBox2.Enabled = false;
+
+            string command2 = $"SELECT surname_client FROM client where id_client = {id_client}";
+            NpgsqlCommand bcommand = new NpgsqlCommand(command2, connection);
+            comboBox1.Text = bcommand.ExecuteScalar().ToString();
+            comboBox1.Enabled = false;
+            
+            staff_Load();           
             extraservice_Load();
         }
 
-        private void client_Load()
-        {
-            string command = "SELECT * FROM client";
-            Load_DataTable(command);
-            comboBox1.DataSource = data;
-            comboBox1.ValueMember = "id_client";
-            comboBox1.DisplayMember = "surname_client";
-        }
 
         private void staff_Load()
         {
@@ -48,14 +50,6 @@ namespace BD
             comboBox3.DataSource = data;
             comboBox3.ValueMember = "id_staff";
             comboBox3.DisplayMember = "staff_surname";
-        }
-        private void room_Load()
-        {
-            string command = "SELECT * FROM room";
-            Load_DataTable(command);
-            comboBox2.DataSource = data;
-            comboBox2.ValueMember = "id_room";
-            comboBox2.DisplayMember = "room";
         }
         private void extraservice_Load()
         {
@@ -89,10 +83,10 @@ namespace BD
         private void button1_Click_1(object sender, EventArgs e)
         {
             if (textBox1.Text == "") { MessageBox.Show("Введите цель приезда"); return; }
-            if (textBox1.Text == "" || comboBox1.SelectedItem == null || comboBox2.SelectedItem == null || comboBox3.SelectedItem == null || comboBox4.SelectedItem == null) { MessageBox.Show("Что-то было упущено..."); return; }
+         //   if (textBox1.Text == "" || comboBox1.SelectedItem == null || comboBox2.SelectedItem == null || comboBox3.SelectedItem == null || comboBox4.SelectedItem == null) { MessageBox.Show("Что-то было упущено..."); return; }
             if (dateTimePicker1.Value.Date < dateTimePicker2.Value.Date) { }
             else { MessageBox.Show("Не планируйте свой отъезд даже не приехав к нам..."); return; }
-            NpgsqlCommand addcommand = new NpgsqlCommand($"INSERT INTO reservation(checkin_date, departure_date, payment_incash, book, aim, id_client, id_staff, id_extraservice, id_room) VALUES('{year}/{month}/{day}', '{year1}/{month1}/{day1}', '{checkBox2.Checked}','{checkBox1.Checked}', '{textBox1.Text}', {(comboBox1.SelectedValue.ToString())}, {(comboBox3.SelectedValue.ToString())}, {(comboBox4.SelectedValue.ToString())}, {(comboBox2.SelectedValue.ToString())} )", connection);
+            NpgsqlCommand addcommand = new NpgsqlCommand($"INSERT INTO reservation(checkin_date, departure_date, payment_incash, book, aim, id_client, id_staff, id_extraservice, id_room) VALUES('{year}/{month}/{day}', '{year1}/{month1}/{day1}', '{checkBox2.Checked}','{checkBox1.Checked}', '{textBox1.Text}', {id_client}, {(comboBox3.SelectedValue.ToString())}, {(comboBox4.SelectedValue.ToString())}, {n1_id_room} )", connection);
             try
             {
                 addcommand.ExecuteNonQuery();

@@ -151,7 +151,7 @@ namespace BD
                     id_socialstatus = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                     adress = dataGridView1.CurrentRow.Cells[6].Value.ToString();
                     Hide();
-                    new infoclient(cconn, id_client, surname_client, name_client, patronymic_client, job, birthday, id_city, id_socialstatus, adress).ShowDialog();
+                    new infoclient(cconn, id_client, surname_client, name_client, patronymic_client, job, birthday, id_city, id_socialstatus, adress, n_id_room).ShowDialog();
                     Show();
                     LoadTable();
                     break;
@@ -293,7 +293,7 @@ namespace BD
             checkBox1.Enabled = false;
             checkBox2.Enabled = false;
             button5.Visible = false;
-            button4.Visible = false; ;
+            button4.Visible = false; 
             LoadTable();
         }
     }

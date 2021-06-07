@@ -18,13 +18,14 @@ namespace BD
         NpgsqlDataAdapter dataAdapter1 = null, InfoDataAdapter;
         DataTable data;
         NpgsqlConnection cconn;
-        int id_room, day, month, year;
+        int id_room1, day, month, year;
         string job, adress, sql_info, n_surname_client, n_name_client;
         string  n_id_client, n_id_city, n_id_socialstatus;
 
-        public infoclient(NpgsqlConnection _conn, string id_client,string surname_client,string name_client,string patronymic_client,string job,DateTime birthday,string id_city,string id_socialstatus,string adress)
+        public infoclient(NpgsqlConnection _conn, string id_client,string surname_client,string name_client,string patronymic_client,string job,DateTime birthday,string id_city,string id_socialstatus,string adress, int n_id_room)
         {
             InitializeComponent();
+            id_room1 = n_id_room;
             n_id_client = id_client;
             cconn = _conn;
             textBox1.Text = surname_client;
@@ -116,7 +117,7 @@ namespace BD
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            new Addreceipt(cconn).ShowDialog();
+            new Addreceipt(cconn, id_room1, n_id_client).ShowDialog();
             LoadInfo(); Show();
         }
 
@@ -138,7 +139,7 @@ namespace BD
 
         public void LoadInfo()
         {
-            sql_info = ($"SELECT a.id_receipt AS ID, a.checkin_date as Дата_заселения, a.departure_date as Дата_выезда, a.payment_incash as Оплата_Наличкой, a.book as Бронирование, a.aim as Цель_приезда, p.id_client as Фамилия_клиента, s.id_extraservice as Доп_услуги, c.id_room as Номер_комнаты, j.id_staff from reservation a left join client p on(p.id_client = a.id_client) left join extraservice s on (s.id_extraservice = a.id_extraservice) left join room c on (c.id_room = a.id_room) left join staff j on (j.id_staff= a.id_staff) ORDER BY ID OFFSET ((" + (numericUpDown1.Value - 1) + ") * " + 15 + ") " +
+            sql_info = ($"SELECT a.id_receipt AS ID, a.checkin_date as Дата_заселения, a.departure_date as Дата_выезда, a.payment_incash as Оплата_Наличкой, a.book as Бронирование, a.aim as Цель_приезда, p.surname_client as Фамилия_клиента, s.service as Доп_услуги, c.id_room as Номер_комнаты, j.staff_surname from reservation a left join client p on(p.id_client = a.id_client) left join extraservice s on (s.id_extraservice = a.id_extraservice) left join room c on (c.id_room = a.id_room) left join staff j on (j.id_staff= a.id_staff) where a.id_client = { n_id_client} ORDER BY ID OFFSET ((" + (numericUpDown1.Value - 1) + ") * " + 15 + ") " +
   "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
 
             InfoDataAdapter = new NpgsqlDataAdapter(sql_info, cconn);

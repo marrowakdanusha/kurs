@@ -98,8 +98,8 @@ namespace BD
             }
              else if ( Note_choose == "Дополнительные услуги") { Hide(); new Addservice(__conn).ShowDialog(); Show(); }
              else if (Note_choose == "стафферы") { Hide(); new addstaff(__conn).ShowDialog(); Show(); }
-          //  else if (Note_choose == "клиенты") { Hide(); new Add_Client(__conn).ShowDialog(); Show(); }
-            else if (Note_choose == "квитанции") { Hide(); new Addreceipt(__conn).ShowDialog(); Show(); }
+            else if (Note_choose == "клиенты") { button1.Visible = false; }
+            else if (Note_choose == "квитанции") { button1.Visible = false; }
             else if (Note_choose == "города") { Hide(); new addcity(__conn).ShowDialog(); Show(); }
 
             LoadNotes();
@@ -123,12 +123,14 @@ namespace BD
             Note_choose = "квитанции";
             LoadNotes();
             Count_Load();
+            button1.Visible = false;
         }
 
         private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Note_choose = "клиенты";
             LoadNotes();
+            button1.Visible = false;
             Count_Load();
         }
 
