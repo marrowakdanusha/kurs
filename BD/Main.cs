@@ -276,13 +276,24 @@ namespace BD
 
         private void отборНомеровToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tablecommand = ("");
+            tablecommand = ("SELECT room.id_room, room.payment from room where room.payment > (SELECT sum(payment) / count (id_room) from room)");
             dataAdapter1 = new NpgsqlDataAdapter(tablecommand, _conn);
             DataTable dt = new DataTable();
             ds.Reset();
             dataAdapter1.Fill(ds);
             dt = ds.Tables[0];
             Room_table.DataSource = dt;
+        }
+
+        private void вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Individ(_conn).ShowDialog();
+            Show();
+        }
+
+        private void главноеМенюToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadTable();
         }
 
         private void Search_Type_SelectedIndexChanged(object sender, EventArgs e)

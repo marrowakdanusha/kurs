@@ -32,10 +32,8 @@ namespace BD
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.главноеМенюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типНомераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.допУслугаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +44,8 @@ namespace BD
             this.клиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.городToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.номераИКлиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отборНомеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.numericCountSQL = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.Searchlable = new System.Windows.Forms.Label();
@@ -57,8 +57,6 @@ namespace BD
             this.Del_Type = new System.Windows.Forms.ComboBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.Room_table = new System.Windows.Forms.DataGridView();
-            this.номераИКлиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.отборНомеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericCountSQL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room_table)).BeginInit();
@@ -84,40 +82,27 @@ namespace BD
             // главноеМенюToolStripMenuItem
             // 
             this.главноеМенюToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem,
-            this.удалитьToolStripMenuItem,
-            this.поискToolStripMenuItem,
-            this.выходToolStripMenuItem});
+            this.выходToolStripMenuItem,
+            this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem});
             this.главноеМенюToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.главноеМенюToolStripMenuItem.Name = "главноеМенюToolStripMenuItem";
             this.главноеМенюToolStripMenuItem.Size = new System.Drawing.Size(146, 25);
             this.главноеМенюToolStripMenuItem.Text = "Главное меню";
-            // 
-            // добавитьToolStripMenuItem
-            // 
-            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(165, 28);
-            this.добавитьToolStripMenuItem.Text = "Добавить";
-            // 
-            // удалитьToolStripMenuItem
-            // 
-            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(165, 28);
-            this.удалитьToolStripMenuItem.Text = "Удалить";
-            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
-            // 
-            // поискToolStripMenuItem
-            // 
-            this.поискToolStripMenuItem.Name = "поискToolStripMenuItem";
-            this.поискToolStripMenuItem.Size = new System.Drawing.Size(165, 28);
-            this.поискToolStripMenuItem.Text = "Поиск";
+            this.главноеМенюToolStripMenuItem.Click += new System.EventHandler(this.главноеМенюToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(165, 28);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(463, 28);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            // 
+            // вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem
+            // 
+            this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Name = "вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem";
+            this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Size = new System.Drawing.Size(463, 28);
+            this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Text = "Вывести кол-во номеров с таким-то типом ";
+            this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Click += new System.EventHandler(this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem_Click);
             // 
             // справочникиToolStripMenuItem
             // 
@@ -199,6 +184,22 @@ namespace BD
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(137, 25);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
+            // 
+            // номераИКлиентыToolStripMenuItem
+            // 
+            this.номераИКлиентыToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.номераИКлиентыToolStripMenuItem.Name = "номераИКлиентыToolStripMenuItem";
+            this.номераИКлиентыToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
+            this.номераИКлиентыToolStripMenuItem.Text = "Номера и клиенты";
+            this.номераИКлиентыToolStripMenuItem.Click += new System.EventHandler(this.номераИКлиентыToolStripMenuItem_Click);
+            // 
+            // отборНомеровToolStripMenuItem
+            // 
+            this.отборНомеровToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.отборНомеровToolStripMenuItem.Name = "отборНомеровToolStripMenuItem";
+            this.отборНомеровToolStripMenuItem.Size = new System.Drawing.Size(158, 25);
+            this.отборНомеровToolStripMenuItem.Text = "Отбор номеров";
+            this.отборНомеровToolStripMenuItem.Click += new System.EventHandler(this.отборНомеровToolStripMenuItem_Click);
             // 
             // numericCountSQL
             // 
@@ -327,22 +328,6 @@ namespace BD
             this.Room_table.TabIndex = 31;
             this.Room_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // номераИКлиентыToolStripMenuItem
-            // 
-            this.номераИКлиентыToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.номераИКлиентыToolStripMenuItem.Name = "номераИКлиентыToolStripMenuItem";
-            this.номераИКлиентыToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
-            this.номераИКлиентыToolStripMenuItem.Text = "Номера и клиенты";
-            this.номераИКлиентыToolStripMenuItem.Click += new System.EventHandler(this.номераИКлиентыToolStripMenuItem_Click);
-            // 
-            // отборНомеровToolStripMenuItem
-            // 
-            this.отборНомеровToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.отборНомеровToolStripMenuItem.Name = "отборНомеровToolStripMenuItem";
-            this.отборНомеровToolStripMenuItem.Size = new System.Drawing.Size(158, 25);
-            this.отборНомеровToolStripMenuItem.Text = "Отбор номеров";
-            this.отборНомеровToolStripMenuItem.Click += new System.EventHandler(this.отборНомеровToolStripMenuItem_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,9 +361,6 @@ namespace BD
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem главноеМенюToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.NumericUpDown numericCountSQL;
         private System.Windows.Forms.Label label2;
@@ -403,5 +385,6 @@ namespace BD
         private System.Windows.Forms.DataGridView Room_table;
         private System.Windows.Forms.ToolStripMenuItem номераИКлиентыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отборНомеровToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem;
     }
 }

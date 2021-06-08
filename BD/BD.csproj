@@ -116,6 +116,12 @@
     <Compile Include="Add_Client.Designer.cs">
       <DependentUpon>Add_Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="Individ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Individ.Designer.cs">
+      <DependentUpon>Individ.cs</DependentUpon>
+    </Compile>
     <Compile Include="infoclient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Client.resx">
       <DependentUpon>Add_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Individ.resx">
+      <DependentUpon>Individ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="infoclient.resx">
       <DependentUpon>infoclient.cs</DependentUpon>
