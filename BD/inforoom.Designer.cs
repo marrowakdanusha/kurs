@@ -59,6 +59,8 @@ namespace BD
             this.Searchlable = new System.Windows.Forms.Label();
             this.Search_SQL = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.вывестиВсеКвитанцииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.кЛИЕНТЫToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -69,7 +71,9 @@ namespace BD
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Times New Roman", 14.25F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MainMenu});
+            this.MainMenu,
+            this.вывестиВсеКвитанцииToolStripMenuItem,
+            this.кЛИЕНТЫToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -361,6 +365,20 @@ namespace BD
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // вывестиВсеКвитанцииToolStripMenuItem
+            // 
+            this.вывестиВсеКвитанцииToolStripMenuItem.Name = "вывестиВсеКвитанцииToolStripMenuItem";
+            this.вывестиВсеКвитанцииToolStripMenuItem.Size = new System.Drawing.Size(216, 25);
+            this.вывестиВсеКвитанцииToolStripMenuItem.Text = "Вывести  все квитанции";
+            this.вывестиВсеКвитанцииToolStripMenuItem.Click += new System.EventHandler(this.вывестиВсеКвитанцииToolStripMenuItem_Click);
+            // 
+            // кЛИЕНТЫToolStripMenuItem
+            // 
+            this.кЛИЕНТЫToolStripMenuItem.Name = "кЛИЕНТЫToolStripMenuItem";
+            this.кЛИЕНТЫToolStripMenuItem.Size = new System.Drawing.Size(114, 25);
+            this.кЛИЕНТЫToolStripMenuItem.Text = "КЛИЕНТЫ";
+            this.кЛИЕНТЫToolStripMenuItem.Click += new System.EventHandler(this.кЛИЕНТЫToolStripMenuItem_Click);
+            // 
             // inforoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,5 +454,7 @@ namespace BD
         private System.Windows.Forms.Label Searchlable;
         private System.Windows.Forms.TextBox Search_SQL;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ToolStripMenuItem вывестиВсеКвитанцииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem кЛИЕНТЫToolStripMenuItem;
     }
 }

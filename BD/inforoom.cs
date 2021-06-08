@@ -158,14 +158,36 @@ namespace BD
             }
             LoadInfo();
         }
+        
+        private void вывестиВсеКвитанцииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql_info = ($"SELECT a.id_receipt AS ID, a.checkin_date as Дата_заселения, a.departure_date as Дата_выезда, " +
+                 $"a.payment_incash as Оплата_Наличкой, a.book as Бронирование, a.aim as Цель_приезда, p.surname_client as Фамилия_клиента, " +
+                 $"s.service as Доп_услуги, c.id_room as Номер_комнаты, j.staff_surname from reservation a left  join client p on(p.id_client = a.id_client) " +
+                 $"left join extraservice s on (s.id_extraservice = a.id_extraservice) inner join room c on (c.id_room = a.id_room) left join staff j on " +
+                 $"(j.id_staff= a.id_staff) where a.id_room={n_id_room} ");
+            InfoDataAdapter = new NpgsqlDataAdapter(sql_info, cconn);
+            DataTable dt = new DataTable();
+            ds.Reset();
+            InfoDataAdapter.Fill(ds);
+            dt = ds.Tables[0];
+            dataGridView1.DataSource = dt;
 
+        }
 
+        private void кЛИЕНТЫToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadInfo();
+        }
 
         public void LoadInfo() 
         {
             
-            sql_info = ($"SELECT a.id_client AS ID, a.surname_client as Фамилия, a.name_client as Имя, a.patronymic_client as Отчество,t.city as Город, s.socialstatus as Соц_положение, a.adress as Адрес, a.job as Работа, a.birthday as Дата_Рождения From client a left join city t on(t.id_city=a.id_city) left join socialstatus s on(s.id_socialstatus=a.id_socialstatus) where a.id_room = { n_id_room} ORDER BY ID OFFSET  ((" + (numericUpDown1.Value - 1) + ") * " + 15 + ") " +
-  "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
+            sql_info = ($"SELECT a.id_client AS ID, a.surname_client as Фамилия, a.name_client as Имя, a.patronymic_client as Отчество,t.city as Город, " +
+                $"s.socialstatus as Соц_положение, a.adress as Адрес, a.job as Работа, a.birthday as Дата_Рождения From client a inner join city t " +
+                $"on(t.id_city=a.id_city) inner join socialstatus s on(s.id_socialstatus=a.id_socialstatus) where a.id_room = { n_id_room} " +
+                $"ORDER BY ID OFFSET  ((" + (numericUpDown1.Value - 1) + ") * " + 15 + ") " +
+                "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
 
             InfoDataAdapter = new NpgsqlDataAdapter(sql_info, cconn);
             DataTable dt = new DataTable();

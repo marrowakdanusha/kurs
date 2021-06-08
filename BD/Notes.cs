@@ -338,6 +338,76 @@ namespace BD
 
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                label4.Visible = true;
+                label5.Visible = true;
+                dateTimePicker1.Visible = true;
+                dateTimePicker2.Visible = true;
+            }
+            else
+            {
+                LoadNotes();
+                label4.Visible = false;
+                label5.Visible = false;
+                dateTimePicker1.Visible = false;
+                dateTimePicker2.Visible = false;
+            }
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            if (Note_choose == "квитанции")
+            {
+                sql = ($"SELECT a.id_receipt AS ID, a.checkin_date as Дата_заселения, a.departure_date as Дата_выезда, a.payment_incash as Оплата_Наличкой, a.book as Бронирование," +
+                    $" a.aim as Цель_приезда, p.surname_client as Фамилия_клиента, s.service as Доп_услуги, c.id_room as Номер_комнаты, j.staff_surname From " +
+                    $"reservation a inner join client p on(p.id_client = a.id_client) inner join extraservice s " +
+                    $"on(s.id_extraservice = a.id_extraservice) inner join room c on(c.id_room = a.id_room) inner join staff j on(j.id_staff = a.id_staff) " +
+                    $"where a.checkin_date between date('{dateTimePicker1.Value.Date.ToString("yyyy-MM-dd")}') and date('{dateTimePicker2.Value.Date.ToString("yyyy-MM-dd")}')" +
+                    $" ORDER BY ID OFFSET ((" + (numeric_Notes.Value - 1) + ") * " + 15 + ") " +
+                    "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
+            }
+            if (Note_choose == "клиенты")
+            {
+                sql = ($"SELECT a.id_client AS ID, a.surname_client as Фамилия, a.name_client as Имя, a.patronymic_client as Отчество,t.city as Город, s.socialstatus as Соц_положение," +
+                    $" a.adress as Адрес, a.job as Работа, a.birthday as Дата_Рождения From client a inner join city t on(t.id_city=a.id_city) inner join socialstatus s " +
+                    $"on(s.id_socialstatus=a.id_socialstatus) " +
+                    $"where a.birthday between date('{dateTimePicker1.Value.Date.ToString("yyyy-MM-dd")}') and date('{dateTimePicker2.Value.Date.ToString("yyyy-MM-dd")}')" +
+                   $" ORDER BY ID OFFSET ((" + (numeric_Notes.Value - 1) + ") * " + 15 + ") " +
+                   "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
+            }
+            LoadTable();
+        }
+
+        private void сортировкаНомеровПоТипуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = ("SELECT room.id_room, roomtype.roomtype from room " +
+                "inner join roomtype on room.id_roomtype =roomtype.id_roomtype ORDER BY roomtype");
+            LoadTable();
+        }
+
+        private void сортировкаКлиентовПоСоцПоложениюToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = ("SELECT client.surname_client, socialstatus.socialstatus from client " +
+                "inner join socialstatus on client.id_socialstatus = socialstatus.id_socialstatus ORDER BY socialstatus");
+            LoadTable();
+        }
+
+        private void сортировкаКлиентовПоГородамToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = ("SELECT client.surname_client, city.city from client " +
+                "inner join city on client.id_city = city.id_city ORDER BY city");
+            LoadTable();
+        }
+
+        private void общаяЦенаВсехДопУслугНомераToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = ("SELECT distinct room.id_room as Номер, (select sum(extraservice.cost) from extraservice where id_room = room.id_room) as Общая_Стоимость from room, extraservice ORDER BY room.id_room OFFSET (0 * 15) ROWS FETCH NEXT 15 ROWS ONLY; ");
+            LoadTable();
+        }
+
         private void странаToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Note_choose = "страны";

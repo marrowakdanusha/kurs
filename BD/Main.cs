@@ -263,6 +263,28 @@ namespace BD
 
         }
 
+        private void номераИКлиентыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tablecommand = ("SELECT distinct room.id_room, (select count(*) from client where client.id_room = room.id_room) from room left join client c on c.id_room = room.id_room");
+            dataAdapter1 = new NpgsqlDataAdapter(tablecommand, _conn);
+            DataTable dt = new DataTable();
+            ds.Reset();
+            dataAdapter1.Fill(ds);
+            dt = ds.Tables[0];
+            Room_table.DataSource = dt;
+        }
+
+        private void отборНомеровToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tablecommand = ("");
+            dataAdapter1 = new NpgsqlDataAdapter(tablecommand, _conn);
+            DataTable dt = new DataTable();
+            ds.Reset();
+            dataAdapter1.Fill(ds);
+            dt = ds.Tables[0];
+            Room_table.DataSource = dt;
+        }
+
         private void Search_Type_SelectedIndexChanged(object sender, EventArgs e)
         {
 

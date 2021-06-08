@@ -139,8 +139,12 @@ namespace BD
 
         public void LoadInfo()
         {
-            sql_info = ($"SELECT a.id_receipt AS ID, a.checkin_date as Дата_заселения, a.departure_date as Дата_выезда, a.payment_incash as Оплата_Наличкой, a.book as Бронирование, a.aim as Цель_приезда, p.surname_client as Фамилия_клиента, s.service as Доп_услуги, c.id_room as Номер_комнаты, j.staff_surname from reservation a left join client p on(p.id_client = a.id_client) left join extraservice s on (s.id_extraservice = a.id_extraservice) left join room c on (c.id_room = a.id_room) left join staff j on (j.id_staff= a.id_staff) where a.id_client = { n_id_client} ORDER BY ID OFFSET ((" + (numericUpDown1.Value - 1) + ") * " + 15 + ") " +
-  "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
+            sql_info = ($"SELECT a.id_receipt AS ID, a.checkin_date as Дата_заселения, a.departure_date as Дата_выезда, " +
+                $"a.payment_incash as Оплата_Наличкой, a.book as Бронирование, a.aim as Цель_приезда, p.surname_client as Фамилия_клиента, " +
+                $"s.service as Доп_услуги, c.id_room as Номер_комнаты, j.staff_surname from reservation a inner join client p on(p.id_client = a.id_client) " +
+                $"inner join extraservice s on (s.id_extraservice = a.id_extraservice) inner join room c on (c.id_room = a.id_room) inner join staff j on " +
+                $"(j.id_staff= a.id_staff) where a.id_client = { n_id_client} ORDER BY ID OFFSET ((" + (numericUpDown1.Value - 1) + ") * " + 15 + ") " +
+                "ROWS FETCH NEXT " + 15 + "ROWS ONLY;");
 
             InfoDataAdapter = new NpgsqlDataAdapter(sql_info, cconn);
             DataTable dt = new DataTable();
