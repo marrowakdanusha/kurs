@@ -147,7 +147,7 @@ namespace BD
 
         private void numericCountSQL_ValueChanged(object sender, EventArgs e)
         {
-        
+            LoadTable();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
