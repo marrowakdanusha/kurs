@@ -85,7 +85,8 @@ namespace BD
             }
 
             DataTable dt = new DataTable();
-            DataSet ds = new DataSet(); ds.Reset();
+            DataSet ds = new DataSet(); 
+            ds.Reset();
             command.Fill(ds);
             dt = ds.Tables[0];
             dataGridView1.DataSource = dt;

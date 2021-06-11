@@ -296,6 +296,12 @@ namespace BD
             LoadTable();
         }
 
+        private void прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new inforeceipt(_conn).ShowDialog();
+            Show();
+        }
+
         private void Search_Type_SelectedIndexChanged(object sender, EventArgs e)
         {
 

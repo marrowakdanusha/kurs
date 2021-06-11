@@ -52,6 +52,11 @@ namespace BD
             this.квитанцияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.клиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.городаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сортировкаНомеровПоТипуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сортировкаКлиентовПоГородамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,11 +64,6 @@ namespace BD
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сортировкаНомеровПоТипуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сортировкаКлиентовПоГородамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_Notes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip2.SuspendLayout();
@@ -268,6 +268,45 @@ namespace BD
             this.городаToolStripMenuItem.Text = "Города";
             this.городаToolStripMenuItem.Click += new System.EventHandler(this.городаToolStripMenuItem_Click);
             // 
+            // запросыToolStripMenuItem
+            // 
+            this.запросыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сортировкаНомеровПоТипуToolStripMenuItem,
+            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem,
+            this.сортировкаКлиентовПоГородамToolStripMenuItem,
+            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem});
+            this.запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
+            this.запросыToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
+            this.запросыToolStripMenuItem.Text = "Запросы";
+            // 
+            // сортировкаНомеровПоТипуToolStripMenuItem
+            // 
+            this.сортировкаНомеровПоТипуToolStripMenuItem.Name = "сортировкаНомеровПоТипуToolStripMenuItem";
+            this.сортировкаНомеровПоТипуToolStripMenuItem.Size = new System.Drawing.Size(418, 26);
+            this.сортировкаНомеровПоТипуToolStripMenuItem.Text = "Сортировка номеров по типу";
+            this.сортировкаНомеровПоТипуToolStripMenuItem.Click += new System.EventHandler(this.сортировкаНомеровПоТипуToolStripMenuItem_Click);
+            // 
+            // сортировкаКлиентовПоСоцПоложениюToolStripMenuItem
+            // 
+            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem.Name = "сортировкаКлиентовПоСоцПоложениюToolStripMenuItem";
+            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem.Size = new System.Drawing.Size(418, 26);
+            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem.Text = "Сортировка клиентов по соц. положению";
+            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem.Click += new System.EventHandler(this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem_Click);
+            // 
+            // сортировкаКлиентовПоГородамToolStripMenuItem
+            // 
+            this.сортировкаКлиентовПоГородамToolStripMenuItem.Name = "сортировкаКлиентовПоГородамToolStripMenuItem";
+            this.сортировкаКлиентовПоГородамToolStripMenuItem.Size = new System.Drawing.Size(418, 26);
+            this.сортировкаКлиентовПоГородамToolStripMenuItem.Text = "Сортировка клиентов по городам";
+            this.сортировкаКлиентовПоГородамToolStripMenuItem.Click += new System.EventHandler(this.сортировкаКлиентовПоГородамToolStripMenuItem_Click);
+            // 
+            // общаяЦенаВсехДопУслугНомераToolStripMenuItem
+            // 
+            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem.Name = "общаяЦенаВсехДопУслугНомераToolStripMenuItem";
+            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem.Size = new System.Drawing.Size(418, 26);
+            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem.Text = "Общая цена всех доп. услуг номера";
+            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem.Click += new System.EventHandler(this.общаяЦенаВсехДопУслугНомераToolStripMenuItem_Click);
+            // 
             // выходToolStripMenuItem1
             // 
             this.выходToolStripMenuItem1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -339,45 +378,6 @@ namespace BD
             this.checkBox1.Text = "Сортировать по дате";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // запросыToolStripMenuItem
-            // 
-            this.запросыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.сортировкаНомеровПоТипуToolStripMenuItem,
-            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem,
-            this.сортировкаКлиентовПоГородамToolStripMenuItem,
-            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem});
-            this.запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
-            this.запросыToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
-            this.запросыToolStripMenuItem.Text = "Запросы";
-            // 
-            // сортировкаНомеровПоТипуToolStripMenuItem
-            // 
-            this.сортировкаНомеровПоТипуToolStripMenuItem.Name = "сортировкаНомеровПоТипуToolStripMenuItem";
-            this.сортировкаНомеровПоТипуToolStripMenuItem.Size = new System.Drawing.Size(418, 26);
-            this.сортировкаНомеровПоТипуToolStripMenuItem.Text = "Сортировка номеров по типу";
-            this.сортировкаНомеровПоТипуToolStripMenuItem.Click += new System.EventHandler(this.сортировкаНомеровПоТипуToolStripMenuItem_Click);
-            // 
-            // сортировкаКлиентовПоСоцПоложениюToolStripMenuItem
-            // 
-            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem.Name = "сортировкаКлиентовПоСоцПоложениюToolStripMenuItem";
-            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem.Size = new System.Drawing.Size(418, 26);
-            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem.Text = "Сортировка клиентов по соц. положению";
-            this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem.Click += new System.EventHandler(this.сортировкаКлиентовПоСоцПоложениюToolStripMenuItem_Click);
-            // 
-            // сортировкаКлиентовПоГородамToolStripMenuItem
-            // 
-            this.сортировкаКлиентовПоГородамToolStripMenuItem.Name = "сортировкаКлиентовПоГородамToolStripMenuItem";
-            this.сортировкаКлиентовПоГородамToolStripMenuItem.Size = new System.Drawing.Size(418, 26);
-            this.сортировкаКлиентовПоГородамToolStripMenuItem.Text = "Сортировка клиентов по городам";
-            this.сортировкаКлиентовПоГородамToolStripMenuItem.Click += new System.EventHandler(this.сортировкаКлиентовПоГородамToolStripMenuItem_Click);
-            // 
-            // общаяЦенаВсехДопУслугНомераToolStripMenuItem
-            // 
-            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem.Name = "общаяЦенаВсехДопУслугНомераToolStripMenuItem";
-            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem.Size = new System.Drawing.Size(418, 26);
-            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem.Text = "Общая цена всех доп. услуг номера";
-            this.общаяЦенаВсехДопУслугНомераToolStripMenuItem.Click += new System.EventHandler(this.общаяЦенаВсехДопУслугНомераToolStripMenuItem_Click);
             // 
             // Notes
             // 
