@@ -95,22 +95,22 @@ namespace BD
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(584, 28);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem
             // 
             this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Name = "вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem";
-            this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Size = new System.Drawing.Size(584, 28);
+            this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
             this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Text = "Вывести кол-во номеров с таким-то типом ";
             this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Click += new System.EventHandler(this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem_Click);
             // 
             // прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem
             // 
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Name = "прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem";
-            this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Size = new System.Drawing.Size(584, 28);
-            this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Text = "Прибыль за указанный год в зависимости от типа номера";
+            this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Text = "Среднее проживание взависимости от типа номера";
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Click += new System.EventHandler(this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem_Click);
             // 
             // справочникиToolStripMenuItem
