@@ -17,8 +17,9 @@ namespace BD
     {
         NpgsqlConnection connection;
         DataSet ds = new DataSet();
+        DataSet ds1 = new DataSet();
         DataTable data;
-        NpgsqlDataAdapter InfoDataAdapter, dataAdapter1 = null;
+        NpgsqlDataAdapter InfoDataAdapter, dataAdapter1 = null, InfoDataAdapter1;
         string sql_info, command, command1;
 
         public inforeceipt(NpgsqlConnection _conn)
@@ -86,8 +87,14 @@ namespace BD
             InfoDataAdapter.Fill(ds);
             dt = ds.Tables[0];
             Room_table.DataSource = dt;
-            NpgsqlCommand command1 = new NpgsqlCommand($"SELECT avg(age(reservation.departure_date, reservation.checkin_date)) FROM roomtype INNER JOIN room ON roomtype.id_roomtype = room.id_roomtype INNER JOIN reservation ON room.id_room = reservation.id_room WHERE roomtype.id_roomtype = {comboBox3.SelectedValue} AND room.fridge = '{checkBox1.Checked}' AND room.tv = '{checkBox2.Checked}' GROUP BY roomtype.roomtype", connection);
-            dataGridView1.Text = $"Среднее количество дней = {command1.ExecuteScalar().ToString()}";
+            
+            command1 = $"SELECT avg(age(reservation.departure_date, reservation.checkin_date)) FROM roomtype INNER JOIN room ON roomtype.id_roomtype = room.id_roomtype INNER JOIN reservation ON room.id_room = reservation.id_room WHERE roomtype.id_roomtype = {comboBox3.SelectedValue} AND room.fridge = '{checkBox1.Checked}' AND room.tv = '{checkBox2.Checked}' GROUP BY roomtype.roomtype";
+            InfoDataAdapter1 = new NpgsqlDataAdapter(command1, connection);
+            DataTable dt1 = new DataTable();
+            ds1.Reset();
+            InfoDataAdapter1.Fill(ds1);
+            dt1 = ds1.Tables[0];
+            dataGridView1.DataSource = dt1;
         }
     }
 }
