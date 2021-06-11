@@ -56,6 +56,16 @@ namespace BD
 
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            roomtype_Load();
+        }
+
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -77,7 +87,7 @@ namespace BD
             dt = ds.Tables[0];
             Room_table.DataSource = dt;
             NpgsqlCommand command1 = new NpgsqlCommand($"SELECT avg(age(reservation.departure_date, reservation.checkin_date)) FROM roomtype INNER JOIN room ON roomtype.id_roomtype = room.id_roomtype INNER JOIN reservation ON room.id_room = reservation.id_room WHERE roomtype.id_roomtype = {comboBox3.SelectedValue} AND room.fridge = '{checkBox1.Checked}' AND room.tv = '{checkBox2.Checked}' GROUP BY roomtype.roomtype", connection);
-            label2.Text = $"Среднее количество дней = {command1.ExecuteScalar().ToString()}";
+            dataGridView1.Text = $"Среднее количество дней = {command1.ExecuteScalar().ToString()}";
         }
     }
 }
