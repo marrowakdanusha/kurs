@@ -29,6 +29,7 @@ namespace BD
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(maxspros));
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,7 +43,7 @@ namespace BD
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 208);
+            this.label2.Location = new System.Drawing.Point(13, 236);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 13);
             this.label2.TabIndex = 108;
@@ -51,7 +52,7 @@ namespace BD
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 236);
+            this.dataGridView1.Location = new System.Drawing.Point(7, 264);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(163, 69);
             this.dataGridView1.TabIndex = 107;
@@ -59,17 +60,18 @@ namespace BD
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 153);
+            this.button1.Location = new System.Drawing.Point(16, 181);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 33);
             this.button1.TabIndex = 106;
             this.button1.Text = "Вывод ";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(14, 107);
+            this.comboBox3.Location = new System.Drawing.Point(16, 135);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(145, 21);
             this.comboBox3.TabIndex = 103;
@@ -78,17 +80,18 @@ namespace BD
             // Room_table
             // 
             this.Room_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Room_table.Location = new System.Drawing.Point(175, 33);
+            this.Room_table.Location = new System.Drawing.Point(176, 61);
             this.Room_table.Name = "Room_table";
             this.Room_table.RowTemplate.Height = 25;
-            this.Room_table.Size = new System.Drawing.Size(314, 272);
+            this.Room_table.Size = new System.Drawing.Size(369, 272);
             this.Room_table.TabIndex = 102;
+            this.Room_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Room_table_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(31, 9);
+            this.label1.Location = new System.Drawing.Point(50, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(432, 21);
             this.label1.TabIndex = 101;
@@ -98,7 +101,8 @@ namespace BD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 318);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(555, 344);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);

@@ -29,6 +29,7 @@ namespace BD
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Individ));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -74,6 +75,7 @@ namespace BD
             // 
             // Individ
             // 
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(491, 261);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
