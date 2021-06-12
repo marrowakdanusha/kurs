@@ -18,9 +18,10 @@ namespace BD
         NpgsqlDataAdapter dataAdapter1 = null, InfoDataAdapter;
         DataTable data;
         NpgsqlConnection cconn;
-        int id_room1, day, month, year;
-        string job, adress, sql_info, n_surname_client, n_name_client;
-        string  n_id_client, n_id_city, n_id_socialstatus;
+        int id_room1, day, month, year, id_room;
+        string job, adress, sql_info, n_surname_client, n_name_client, id_repeipt, surname_client, staff_surname, n_id_client, n_id_city, n_id_socialstatus, aim, service;
+        DateTime checkin_date, departure_date;
+        bool payment_incash, book;
 
         public infoclient(NpgsqlConnection _conn, string id_client,string surname_client,string name_client,string patronymic_client,string job,DateTime birthday,string id_city,string id_socialstatus,string adress, int n_id_room)
         {
@@ -95,7 +96,24 @@ namespace BD
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            switch (dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].HeaderText)
+            {
+                case "id":
+                    id_repeipt = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    checkin_date = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+                    departure_date = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+                    payment_incash = Convert.ToBoolean(dataGridView1.CurrentRow.Cells[3].Value);
+                    book = Convert.ToBoolean(dataGridView1.CurrentRow.Cells[4].Value);
+                    aim = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    surname_client = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                    service = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                    id_room = Convert.ToInt32(dataGridView1.CurrentRow.Cells[8].Value);
+                    staff_surname = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+                    Hide();
+                    new fullreceipt(cconn, id_repeipt, checkin_date, departure_date, payment_incash, book, aim,  surname_client, service, staff_surname, id_room).ShowDialog();
+                    Show();
+                    break;
+            }
             LoadInfo();
         }
 

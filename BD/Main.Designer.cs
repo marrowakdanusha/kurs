@@ -58,6 +58,7 @@ namespace BD
             this.Del_Type = new System.Windows.Forms.ComboBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.Room_table = new System.Windows.Forms.DataGridView();
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericCountSQL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room_table)).BeginInit();
@@ -85,7 +86,8 @@ namespace BD
             this.главноеМенюToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.выходToolStripMenuItem,
             this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem,
-            this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem});
+            this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem,
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem});
             this.главноеМенюToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.главноеМенюToolStripMenuItem.Name = "главноеМенюToolStripMenuItem";
             this.главноеМенюToolStripMenuItem.Size = new System.Drawing.Size(146, 25);
@@ -337,6 +339,13 @@ namespace BD
             this.Room_table.TabIndex = 31;
             this.Room_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // типНомераПользующийсяМаксСпросомToolStripMenuItem
+            // 
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Name = "типНомераПользующийсяМаксСпросомToolStripMenuItem";
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Text = "Тип номера пользующийся макс. спросом";
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Click += new System.EventHandler(this.типНомераПользующийсяМаксСпросомToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,5 +405,6 @@ namespace BD
         private System.Windows.Forms.ToolStripMenuItem отборНомеровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типНомераПользующийсяМаксСпросомToolStripMenuItem;
     }
 }

@@ -61,6 +61,7 @@ namespace BD
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 20);
             this.textBox1.TabIndex = 88;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // comboBox4
             // 
@@ -69,6 +70,7 @@ namespace BD
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(145, 21);
             this.comboBox4.TabIndex = 87;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // comboBox3
             // 
@@ -77,6 +79,7 @@ namespace BD
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(145, 21);
             this.comboBox3.TabIndex = 86;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -94,6 +97,7 @@ namespace BD
             this.dateTimePicker2.Size = new System.Drawing.Size(145, 20);
             this.dateTimePicker2.TabIndex = 84;
             this.dateTimePicker2.Value = new System.DateTime(2021, 6, 3, 0, 0, 0, 0);
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // dateTimePicker1
             // 
@@ -102,6 +106,7 @@ namespace BD
             this.dateTimePicker1.Size = new System.Drawing.Size(145, 20);
             this.dateTimePicker1.TabIndex = 83;
             this.dateTimePicker1.Value = new System.DateTime(2021, 5, 18, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label11
             // 
@@ -153,6 +158,7 @@ namespace BD
             this.checkBox2.TabIndex = 78;
             this.checkBox2.Text = "( да / нет )";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // label10
             // 
@@ -175,6 +181,7 @@ namespace BD
             this.checkBox1.Text = "( да / нет )";
             this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label6
             // 
@@ -267,7 +274,7 @@ namespace BD
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(453, 456);
+            this.ClientSize = new System.Drawing.Size(436, 449);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label7);

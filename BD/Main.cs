@@ -96,7 +96,10 @@ namespace BD
         }
         private void Del_Button_Click(object sender, EventArgs e)
         {
+
             {
+                NpgsqlCommand countdel1;
+                DialogResult result = new DialogResult();
                 string deleteRowSQL = "";
                 if (Del_Type.SelectedItem != null)
                 {
@@ -134,6 +137,7 @@ namespace BD
                         {
                             deleteRowSQL = $" DELETE FROM room";
                             NpgsqlCommand deleteCommand = new NpgsqlCommand(deleteRowSQL, _conn);
+
                             deleteCommand.ExecuteNonQuery();
                             NpgsqlCommand updateCommand = new NpgsqlCommand(Update_ID, _conn);
                             updateCommand.ExecuteNonQuery();
@@ -187,6 +191,7 @@ namespace BD
         {
             NpgsqlCommand command;
             searchText = Search_SQL.Text;
+
             if (Search_Type.SelectedItem == null) { MessageBox.Show("Мы что, ничего не ищем?!"); return; }
             switch (Search_Type.SelectedItem)
             {
@@ -299,6 +304,12 @@ namespace BD
         private void прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new inforeceipt(_conn).ShowDialog();
+            Show();
+        }
+
+        private void типНомераПользующийсяМаксСпросомToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new maxspros(_conn).ShowDialog();
             Show();
         }
 
