@@ -116,6 +116,12 @@
     <Compile Include="Add_Client.Designer.cs">
       <DependentUpon>Add_Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="fullreceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fullreceipt.Designer.cs">
+      <DependentUpon>fullreceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Individ.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Client.resx">
       <DependentUpon>Add_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fullreceipt.resx">
+      <DependentUpon>fullreceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Individ.resx">
       <DependentUpon>Individ.cs</DependentUpon>
