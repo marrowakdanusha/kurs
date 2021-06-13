@@ -14,24 +14,30 @@ namespace BD
 {
     public partial class fullreceipt : Form
     {
-        DataTable data;
         NpgsqlConnection connection;
-        NpgsqlCommand command, Add_command;
-        string command_Add, aim, id_client, n_id_receipt, n_surname_client, n_service, n_staff_surname, n_id_room;
+        DataSet ds = new DataSet();
+        DataSet ds1 = new DataSet();
+        string id_client, n_id_receipt, n_surname_client, n_service, n_staff_surname, n_id_room;
         int day, month, year, day1, month1, year1;
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+           NpgsqlCommand command = new NpgsqlCommand ($"Select (reservation.departure_date - reservation.checkin_date) from reservation left join room on (reservation.id_room = room.id_room) left join roomtype on (room.id_roomtype = roomtype.id_roomtype) where reservation.id_client = {id_client}", connection);
+            textBox2.Text = $"{command.ExecuteScalar().ToString()}";
         }
 
-        public fullreceipt(NpgsqlConnection cconn, string id_repeipt, DateTime checkin_date, DateTime departure_date, bool payment_incash, bool book, string aim, string surname_client, string service,  string staff_surname, string id_room)
+        public fullreceipt(NpgsqlConnection cconn, string id_receipt, DateTime checkin_date, DateTime departure_date, bool payment_incash, bool book, string aim, string surname_client, string service,  string staff_surname, string id_room, string n_id_client)
         {
             InitializeComponent();
             connection = cconn;
-            n_id_receipt = id_repeipt;
+            n_id_receipt = id_receipt;
             textBox1.Text = aim;
             n_id_room = id_room;
+            id_client = n_id_client;
             n_surname_client = surname_client;
             n_service = service;
             n_staff_surname = staff_surname;
@@ -110,7 +116,7 @@ namespace BD
             comboBox1.SelectedText = n_surname_client;
             comboBox1.Enabled = false;
             textBox1.ReadOnly = true;
-            textBox2.ReadOnly = true;
+            textBox2.ReadOnly = false;
             dateTimePicker1.Enabled = false;
             dateTimePicker2.Enabled = false;
 

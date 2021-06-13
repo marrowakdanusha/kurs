@@ -110,7 +110,7 @@ namespace BD
                     id_room = dataGridView1.CurrentRow.Cells[8].Value.ToString();
                     staff_surname = dataGridView1.CurrentRow.Cells[9].Value.ToString();
                     Hide();
-                    new fullreceipt(cconn, id_repeipt, checkin_date, departure_date, payment_incash, book, aim,  surname_client, service, staff_surname, id_room).ShowDialog();
+                    new fullreceipt(cconn, id_repeipt, checkin_date, departure_date, payment_incash, book, aim,  surname_client, service, staff_surname, id_room, n_id_client).ShowDialog();
                     Show();
                     break;
             }
