@@ -313,6 +313,12 @@ namespace BD
             Show();
         }
 
+        private void подсчётСуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new moneymaker(_conn).ShowDialog();
+            Show();
+        }
+
         private void Search_Type_SelectedIndexChanged(object sender, EventArgs e)
         {
 

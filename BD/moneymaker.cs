@@ -26,6 +26,31 @@ namespace BD
             roomtype_Load();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            command = $"select room.id_room as Номер, ((room.payment + extraservice.cost) * (reservation.departure_date - reservation.checkin_date)) as К_Оплате from reservation left join room on (reservation.id_room = room.id_room) left join extraservice on (reservation.id_extraservice = extraservice.id_extraservice) left join roomtype on (room.id_roomtype = roomtype.id_roomtype) where roomtype.id_roomtype = {comboBox3.SelectedValue} and EXTRACT (YEAR from departure_date) = '{dateTimePicker1.Value.Year}'";
+            InfoDataAdapter = new NpgsqlDataAdapter(command, connection);
+            DataTable dt = new DataTable();
+            ds.Reset();
+            InfoDataAdapter.Fill(ds);
+            dt = ds.Tables[0];
+            Room_table.DataSource = dt;
+
+            command1 = $"select sum ((room.payment + extraservice.cost) * (reservation.departure_date - reservation.checkin_date)) from reservation left join room on (reservation.id_room = room.id_room) left join extraservice on (reservation.id_extraservice = extraservice.id_extraservice) left join roomtype on( room.id_roomtype = roomtype.id_roomtype) where roomtype.id_roomtype = {comboBox3.SelectedValue} and EXTRACT (YEAR from departure_date) = '{dateTimePicker1.Value.Year}'";
+
+            InfoDataAdapter1 = new NpgsqlDataAdapter(command1, connection);
+            DataTable dt1 = new DataTable();
+            ds1.Reset();
+            InfoDataAdapter1.Fill(ds1);
+            dt1 = ds1.Tables[0];
+            dataGridView1.DataSource = dt1;
+        }
+
+        private void Room_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 

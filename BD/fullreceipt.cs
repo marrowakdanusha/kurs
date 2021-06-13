@@ -19,6 +19,8 @@ namespace BD
         DataSet ds1 = new DataSet();
         string id_client, n_id_receipt, n_surname_client, n_service, n_staff_surname, n_id_room;
         int day, month, year, day1, month1, year1;
+        DataTable data;
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -48,6 +50,11 @@ namespace BD
             
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NpgsqlCommand command1 = new NpgsqlCommand ($"select ((room.payment + extraservice.cost) * (reservation.departure_date - reservation.checkin_date)) from reservation left join room on (reservation.id_room = room.id_room) left join extraservice on (reservation.id_extraservice = extraservice.id_extraservice) left join roomtype on (room.id_roomtype = roomtype.id_roomtype) where reservation.id_client = {id_client}", connection);
+            textBox3.Text = $"{command1.ExecuteScalar().ToString()}";
+        }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {

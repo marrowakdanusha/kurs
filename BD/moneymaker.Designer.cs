@@ -55,7 +55,7 @@ namespace BD
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(31, 139);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(331, 69);
+            this.dataGridView1.Size = new System.Drawing.Size(271, 69);
             this.dataGridView1.TabIndex = 113;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -67,6 +67,7 @@ namespace BD
             this.button1.TabIndex = 112;
             this.button1.Text = "Вывод ";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox3
             // 
@@ -83,8 +84,9 @@ namespace BD
             this.Room_table.Location = new System.Drawing.Point(31, 214);
             this.Room_table.Name = "Room_table";
             this.Room_table.RowTemplate.Height = 25;
-            this.Room_table.Size = new System.Drawing.Size(331, 253);
+            this.Room_table.Size = new System.Drawing.Size(271, 177);
             this.Room_table.TabIndex = 110;
+            this.Room_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Room_table_CellContentClick);
             // 
             // dateTimePicker1
             // 
@@ -108,7 +110,7 @@ namespace BD
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(393, 484);
+            this.ClientSize = new System.Drawing.Size(376, 409);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);

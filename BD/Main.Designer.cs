@@ -35,6 +35,7 @@ namespace BD
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типНомераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.допУслугаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +59,7 @@ namespace BD
             this.Del_Type = new System.Windows.Forms.ComboBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.Room_table = new System.Windows.Forms.DataGridView();
-            this.типНомераПользующийсяМаксСпросомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.подсчётСуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericCountSQL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room_table)).BeginInit();
@@ -87,7 +88,8 @@ namespace BD
             this.выходToolStripMenuItem,
             this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem,
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem,
-            this.типНомераПользующийсяМаксСпросомToolStripMenuItem});
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem,
+            this.подсчётСуToolStripMenuItem});
             this.главноеМенюToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.главноеМенюToolStripMenuItem.Name = "главноеМенюToolStripMenuItem";
             this.главноеМенюToolStripMenuItem.Size = new System.Drawing.Size(146, 25);
@@ -114,6 +116,13 @@ namespace BD
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Text = "Среднее проживание взависимости от типа номера";
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Click += new System.EventHandler(this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem_Click);
+            // 
+            // типНомераПользующийсяМаксСпросомToolStripMenuItem
+            // 
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Name = "типНомераПользующийсяМаксСпросомToolStripMenuItem";
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Text = "Тип номера пользующийся макс. спросом";
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Click += new System.EventHandler(this.типНомераПользующийсяМаксСпросомToolStripMenuItem_Click);
             // 
             // справочникиToolStripMenuItem
             // 
@@ -339,12 +348,12 @@ namespace BD
             this.Room_table.TabIndex = 31;
             this.Room_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // типНомераПользующийсяМаксСпросомToolStripMenuItem
+            // подсчётСуToolStripMenuItem
             // 
-            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Name = "типНомераПользующийсяМаксСпросомToolStripMenuItem";
-            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
-            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Text = "Тип номера пользующийся макс. спросом";
-            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Click += new System.EventHandler(this.типНомераПользующийсяМаксСпросомToolStripMenuItem_Click);
+            this.подсчётСуToolStripMenuItem.Name = "подсчётСуToolStripMenuItem";
+            this.подсчётСуToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.подсчётСуToolStripMenuItem.Text = "Подсчёт прибыли";
+            this.подсчётСуToolStripMenuItem.Click += new System.EventHandler(this.подсчётСуToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -406,5 +415,6 @@ namespace BD
         private System.Windows.Forms.ToolStripMenuItem вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типНомераПользующийсяМаксСпросомToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem подсчётСуToolStripMenuItem;
     }
 }

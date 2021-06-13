@@ -19,7 +19,7 @@ namespace BD
         DataSet ds = new DataSet();
         DataSet ds1 = new DataSet();
         DataTable data;
-        NpgsqlDataAdapter InfoDataAdapter, dataAdapter1 = null, InfoDataAdapter1;
+        NpgsqlDataAdapter InfoDataAdapter,  InfoDataAdapter1;
         string sql_info, command, command1;
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
