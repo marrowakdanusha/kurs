@@ -164,6 +164,12 @@
     <Compile Include="maxspros.Designer.cs">
       <DependentUpon>maxspros.cs</DependentUpon>
     </Compile>
+    <Compile Include="moneymaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="moneymaker.Designer.cs">
+      <DependentUpon>moneymaker.cs</DependentUpon>
+    </Compile>
     <Compile Include="NoteAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="maxspros.resx">
       <DependentUpon>maxspros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="moneymaker.resx">
+      <DependentUpon>moneymaker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NoteAdd.resx">
       <DependentUpon>NoteAdd.cs</DependentUpon>
