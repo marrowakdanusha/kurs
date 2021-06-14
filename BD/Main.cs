@@ -325,6 +325,12 @@ namespace BD
             Show();
         }
 
+        private void среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new charts2(_conn).ShowDialog();
+            Show();
+        }
+
         private void Search_Type_SelectedIndexChanged(object sender, EventArgs e)
         {
 

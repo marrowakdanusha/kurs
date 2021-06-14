@@ -61,6 +61,7 @@ namespace BD
             this.AddButton = new System.Windows.Forms.Button();
             this.Room_table = new System.Windows.Forms.DataGridView();
             this.круговаяДиаграммаТиповНомеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericCountSQL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room_table)).BeginInit();
@@ -91,7 +92,8 @@ namespace BD
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem,
             this.типНомераПользующийсяМаксСпросомToolStripMenuItem,
             this.подсчётСуToolStripMenuItem,
-            this.круговаяДиаграммаТиповНомеровToolStripMenuItem});
+            this.круговаяДиаграммаТиповНомеровToolStripMenuItem,
+            this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem});
             this.главноеМенюToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.главноеМенюToolStripMenuItem.Name = "главноеМенюToolStripMenuItem";
             this.главноеМенюToolStripMenuItem.Size = new System.Drawing.Size(146, 25);
@@ -364,6 +366,13 @@ namespace BD
             this.круговаяДиаграммаТиповНомеровToolStripMenuItem.Text = "Круговая диаграмма типов номеров";
             this.круговаяДиаграммаТиповНомеровToolStripMenuItem.Click += new System.EventHandler(this.круговаяДиаграммаТиповНомеровToolStripMenuItem_Click);
             // 
+            // среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem
+            // 
+            this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem.Name = "среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem";
+            this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem.Text = "Среднее количество клиентов по типу номера";
+            this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem.Click += new System.EventHandler(this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,5 +435,6 @@ namespace BD
         private System.Windows.Forms.ToolStripMenuItem типНомераПользующийсяМаксСпросомToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem подсчётСуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem круговаяДиаграммаТиповНомеровToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem;
     }
 }
