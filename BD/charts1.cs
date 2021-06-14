@@ -24,7 +24,7 @@ namespace BD
 
         private void charts1_Load(object sender, EventArgs e)
         {
-            NpgsqlDataAdapter command = new NpgsqlDataAdapter($"SELECT roomtype.roomtype,sel.count FROM roomtype,(SELECT room.id_roomtype,count(*) FROM room GROUP BY room.id_roomtype) as sel WHERE roomtype.id_roomtype=sel.id_roomtype", connection);
+            NpgsqlDataAdapter command = new NpgsqlDataAdapter($"select first_sel.roomtype, (float4 (count_bad * 100) / float4((SELECT count(*) FROM room ))) AS Процент FROM(SELECT roomtype.roomtype, count(*) AS count_bad FROM room LEFT JOIN  roomtype on roomtype.id_roomtype = room.id_roomtype WHERE(room.numberofseats > 5) GROUP BY roomtype.roomtype ORDER BY roomtype.roomtype) AS first_sel ", connection);
             DataTable dt = new DataTable();
             DataSet ds = new DataSet(); ds.Reset();
             command.Fill(ds);

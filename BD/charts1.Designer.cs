@@ -54,7 +54,7 @@ namespace BD
             series1.Name = "Series14";
             series1.YValuesPerPoint = 2;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(438, 317);
+            this.chart1.Size = new System.Drawing.Size(385, 317);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -62,25 +62,25 @@ namespace BD
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(312, 29);
+            this.label1.Location = new System.Drawing.Point(78, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(400, 21);
+            this.label1.Size = new System.Drawing.Size(559, 21);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Процент комнат с определенным типом  номера";
+            this.label1.Text = "Процент комнат с количеством кроватей больше 5 по типу номеров";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(473, 74);
+            this.dataGridView1.Location = new System.Drawing.Point(414, 74);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(438, 316);
+            this.dataGridView1.Size = new System.Drawing.Size(259, 317);
             this.dataGridView1.TabIndex = 5;
             // 
             // charts1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 412);
+            this.ClientSize = new System.Drawing.Size(699, 412);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chart1);
