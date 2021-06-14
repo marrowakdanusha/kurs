@@ -69,6 +69,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -115,6 +116,24 @@
     </Compile>
     <Compile Include="Add_Client.Designer.cs">
       <DependentUpon>Add_Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="charts1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="charts1.Designer.cs">
+      <DependentUpon>charts1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="charts2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="charts2.Designer.cs">
+      <DependentUpon>charts2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="charts3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="charts3.Designer.cs">
+      <DependentUpon>charts3.cs</DependentUpon>
     </Compile>
     <Compile Include="fullreceipt.cs">
       <SubType>Form</SubType>
@@ -201,6 +220,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Client.resx">
       <DependentUpon>Add_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="charts1.resx">
+      <DependentUpon>charts1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="charts2.resx">
+      <DependentUpon>charts2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="charts3.resx">
+      <DependentUpon>charts3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fullreceipt.resx">
       <DependentUpon>fullreceipt.cs</DependentUpon>

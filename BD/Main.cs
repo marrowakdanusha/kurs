@@ -319,6 +319,12 @@ namespace BD
             Show();
         }
 
+        private void круговаяДиаграммаТиповНомеровToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new charts1(_conn).ShowDialog();
+            Show();
+        }
+
         private void Search_Type_SelectedIndexChanged(object sender, EventArgs e)
         {
 
