@@ -331,6 +331,12 @@ namespace BD
             Show();
         }
 
+        private void количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new charts3(_conn).ShowDialog();
+            Show();
+        }
+
         private void Search_Type_SelectedIndexChanged(object sender, EventArgs e)
         {
 

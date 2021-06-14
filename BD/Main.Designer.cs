@@ -62,6 +62,7 @@ namespace BD
             this.Room_table = new System.Windows.Forms.DataGridView();
             this.круговаяДиаграммаТиповНомеровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericCountSQL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room_table)).BeginInit();
@@ -93,7 +94,8 @@ namespace BD
             this.типНомераПользующийсяМаксСпросомToolStripMenuItem,
             this.подсчётСуToolStripMenuItem,
             this.круговаяДиаграммаТиповНомеровToolStripMenuItem,
-            this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem});
+            this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem,
+            this.количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem});
             this.главноеМенюToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.главноеМенюToolStripMenuItem.Name = "главноеМенюToolStripMenuItem";
             this.главноеМенюToolStripMenuItem.Size = new System.Drawing.Size(146, 25);
@@ -103,35 +105,35 @@ namespace BD
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(667, 28);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem
             // 
             this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Name = "вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem";
-            this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Size = new System.Drawing.Size(667, 28);
             this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Text = "Вывести кол-во номеров с таким-то типом ";
             this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem.Click += new System.EventHandler(this.вывестиКолвоНомеровСТакимтоТипомToolStripMenuItem_Click);
             // 
             // прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem
             // 
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Name = "прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem";
-            this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Size = new System.Drawing.Size(667, 28);
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Text = "Среднее проживание взависимости от типа номера";
             this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem.Click += new System.EventHandler(this.прибыльЗаУказанныйГодВЗависимостиОтТипаНомераToolStripMenuItem_Click);
             // 
             // типНомераПользующийсяМаксСпросомToolStripMenuItem
             // 
             this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Name = "типНомераПользующийсяМаксСпросомToolStripMenuItem";
-            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Size = new System.Drawing.Size(667, 28);
             this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Text = "Тип номера пользующийся макс. спросом";
             this.типНомераПользующийсяМаксСпросомToolStripMenuItem.Click += new System.EventHandler(this.типНомераПользующийсяМаксСпросомToolStripMenuItem_Click);
             // 
             // подсчётСуToolStripMenuItem
             // 
             this.подсчётСуToolStripMenuItem.Name = "подсчётСуToolStripMenuItem";
-            this.подсчётСуToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.подсчётСуToolStripMenuItem.Size = new System.Drawing.Size(667, 28);
             this.подсчётСуToolStripMenuItem.Text = "Подсчёт прибыли";
             this.подсчётСуToolStripMenuItem.Click += new System.EventHandler(this.подсчётСуToolStripMenuItem_Click);
             // 
@@ -362,16 +364,23 @@ namespace BD
             // круговаяДиаграммаТиповНомеровToolStripMenuItem
             // 
             this.круговаяДиаграммаТиповНомеровToolStripMenuItem.Name = "круговаяДиаграммаТиповНомеровToolStripMenuItem";
-            this.круговаяДиаграммаТиповНомеровToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.круговаяДиаграммаТиповНомеровToolStripMenuItem.Size = new System.Drawing.Size(667, 28);
             this.круговаяДиаграммаТиповНомеровToolStripMenuItem.Text = "Круговая диаграмма типов номеров";
             this.круговаяДиаграммаТиповНомеровToolStripMenuItem.Click += new System.EventHandler(this.круговаяДиаграммаТиповНомеровToolStripMenuItem_Click);
             // 
             // среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem
             // 
             this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem.Name = "среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem";
-            this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem.Size = new System.Drawing.Size(529, 28);
+            this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem.Size = new System.Drawing.Size(667, 28);
             this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem.Text = "Среднее количество клиентов по типу номера";
             this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem.Click += new System.EventHandler(this.среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem_Click);
+            // 
+            // количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem
+            // 
+            this.количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem.Name = "количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem";
+            this.количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem.Size = new System.Drawing.Size(667, 28);
+            this.количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem.Text = "Количество клиентов с определенным соц. положением в номерах";
+            this.количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem.Click += new System.EventHandler(this.количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -436,5 +445,6 @@ namespace BD
         private System.Windows.Forms.ToolStripMenuItem подсчётСуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem круговаяДиаграммаТиповНомеровToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem среднееКоличествоКлиентовПоТипуНомераToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem количествоКлиентовСОпределеннымСоцПоложениемВНомерахToolStripMenuItem;
     }
 }
