@@ -37,14 +37,17 @@ namespace BD
             this.Room_table = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room_table)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 110);
+            this.label2.Location = new System.Drawing.Point(38, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(152, 13);
             this.label2.TabIndex = 114;
@@ -53,7 +56,7 @@ namespace BD
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 139);
+            this.dataGridView1.Location = new System.Drawing.Point(41, 152);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(271, 69);
             this.dataGridView1.TabIndex = 113;
@@ -61,7 +64,7 @@ namespace BD
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(202, 100);
+            this.button1.Location = new System.Drawing.Point(212, 113);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(160, 33);
             this.button1.TabIndex = 112;
@@ -72,7 +75,7 @@ namespace BD
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(202, 64);
+            this.comboBox3.Location = new System.Drawing.Point(212, 77);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(160, 21);
             this.comboBox3.TabIndex = 111;
@@ -81,7 +84,7 @@ namespace BD
             // Room_table
             // 
             this.Room_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Room_table.Location = new System.Drawing.Point(31, 214);
+            this.Room_table.Location = new System.Drawing.Point(41, 227);
             this.Room_table.Name = "Room_table";
             this.Room_table.RowTemplate.Height = 25;
             this.Room_table.Size = new System.Drawing.Size(271, 177);
@@ -90,7 +93,7 @@ namespace BD
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(31, 65);
+            this.dateTimePicker1.Location = new System.Drawing.Point(41, 78);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(165, 20);
             this.dateTimePicker1.TabIndex = 115;
@@ -99,18 +102,39 @@ namespace BD
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 26);
+            this.label1.Location = new System.Drawing.Point(22, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(354, 21);
             this.label1.TabIndex = 109;
             this.label1.Text = "Прибыль за указанный год от типа номера";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.AutoSize = false;
+            this.menuStrip1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuStrip1.BackgroundImage")));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.оПрограммеToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(387, 29);
+            this.menuStrip1.TabIndex = 116;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(171, 25);
+            this.оПрограммеToolStripMenuItem.Text = "Экспорт в эксель";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // moneymaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(376, 409);
+            this.ClientSize = new System.Drawing.Size(387, 414);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
@@ -123,6 +147,8 @@ namespace BD
             this.Load += new System.EventHandler(this.moneymaker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room_table)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +163,7 @@ namespace BD
         private System.Windows.Forms.DataGridView Room_table;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
     }
 }

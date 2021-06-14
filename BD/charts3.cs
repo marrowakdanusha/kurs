@@ -31,10 +31,6 @@ namespace BD
         {
 
         }
-        private void charts3_Load(object sender, EventArgs e)
-        {
-            Select_Districts();
-        }
 
         public void Select_Districts()
         {
@@ -81,6 +77,11 @@ namespace BD
             chart1.Legends[0].Font = new Font("Microsoft Sans Serif", 12);
 
             drk.Close();
+        }
+
+        private void charts3_Load_1(object sender, EventArgs e)
+        {
+            Select_Districts();
         }
     }
 }
