@@ -53,7 +53,8 @@ namespace BD
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Export_Excel export = new Export_Excel();
+            export.Export(Room_table);
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
